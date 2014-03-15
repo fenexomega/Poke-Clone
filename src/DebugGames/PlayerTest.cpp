@@ -75,8 +75,6 @@ void PlayerTest::gameUpdate(long currentTime)
         background->UpdateAnimations();
     }
 
-    //player->Update(k,isMoving);
-
     if(!isMoving)
         player->Update(k,isMoving);
     else
