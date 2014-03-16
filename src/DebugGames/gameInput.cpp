@@ -10,22 +10,22 @@ int gameInput::Update()
     {
             if(GEInput::isKeyPressed(SDLK_DOWN))
             {
-                return 2;
+                return PLAYER_GO_DOWN;
             }
             else
             if(GEInput::isKeyPressed(SDLK_UP))
             {
-                return 14;
+                return PLAYER_GO_UP;
             }
             else
             if(GEInput::isKeyPressed(SDLK_RIGHT))
             {
-                return 10;
+                return PLAYER_GO_RIGHT;
             }
             else
             if(GEInput::isKeyPressed(SDLK_LEFT))
             {
-                return 6;
+                return PLAYER_GO_LEFT;
             }
     }
     return 0;

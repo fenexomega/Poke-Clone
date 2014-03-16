@@ -1,0 +1,9 @@
+#ifndef GLOBALSETTINGS_H
+#define GLOBALSETTINGS_H
+
+#define PLAYER_GO_DOWN 2
+#define PLAYER_GO_UP 14
+#define PLAYER_GO_RIGHT 10
+#define PLAYER_GO_LEFT 6
+
+#endif // GLOBALSETTINGS_H

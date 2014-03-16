@@ -25,8 +25,8 @@ private:
     vector<GObject *> objects;
     bool isMoving;
     Player *player;
-    int timeAux;
-    int movingTimeAcc;
+    float timeAux;
+    float movingTimeAcc;
 public:
     PlayerTest();
     ~PlayerTest();

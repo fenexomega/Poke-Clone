@@ -9,12 +9,7 @@
 #include "../GEInput.h"
 #include "../GETimer.h"
 #include "gameInput.h"
-
-
-#define PLAYER_GO_DOWN 2
-#define PLAYER_GO_UP 14
-#define PLAYER_GO_RIGHT 10
-#define PLAYER_GO_LEFT 6
+#include "GlobalSettings.h"
 
 const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
@@ -69,12 +64,11 @@ void PlayerTest::gameUpdate(long currentTime)
         }
     }
 
-    if((currentTime += deltaTime*1000) > 1000 )
+    if((timeAux += deltaTime*1000) > 400 )
     {
-        currentTime = 0;
+        timeAux = 0;
         background->UpdateAnimations();
     }
-
     if(!isMoving)
         player->Update(k,isMoving);
     else

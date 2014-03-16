@@ -48,12 +48,12 @@ GETileMap::GETileMap(int x,int y,string filename,string tileimage)
 
 void GETileMap::UpdateAnimations()
 {
-    if(animatedAux++ > 1)
+    if(animatedAux++ > 2)
     {
         for(int i = 0; i < animatedTiles.size(); i++)
         {
             if(animatedTiles[i] > 0)
-                animatedTiles[i] -= 2;
+                animatedTiles[i] -= 3;
         }
         animatedAux = 0;
         return;

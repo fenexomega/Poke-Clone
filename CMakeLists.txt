@@ -31,6 +31,7 @@ add_executable( game
         src/DebugGames/tilemap.map
         src/DebugGames/Player.cpp
         src/DebugGames/gameInput.cpp
+        src/DebugGames/GlobalSettings.h
 
         src/Game/finalGame.cpp
 )
