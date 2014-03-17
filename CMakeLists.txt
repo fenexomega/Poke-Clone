@@ -35,6 +35,6 @@ add_executable( game
 
         src/Game/finalGame.cpp
 )
-set(CMAKE_CXX_FLAGS "-std=c++11 -g")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -g")
 #file(COPY
 target_link_libraries(game ${SDL_LIBRARY} ${SDL_IMAGE_LIBRARY} ${SDL_TTF_LIBRARY} )

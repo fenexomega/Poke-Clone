@@ -10,7 +10,6 @@
 #include "../GETimer.h"
 #include "gameInput.h"
 #include "GlobalSettings.h"
-
 const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
 extern float deltaTime;
@@ -21,10 +20,11 @@ PlayerTest::PlayerTest()
     timeAux = 0;
     i = 0;
     k = 2;
-    player = new Player();
     ymov = xmov = 0;
     isMoving = false;
     background = new GETileMap(GE_GLOBAL_TILESIZE,-GE_GLOBAL_TILESIZE,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME);
+    player = new Player(background->getX()/(GE_GLOBAL_TILESIZE),background->getY()/(GE_GLOBAL_TILESIZE));
+
 }
 
 PlayerTest::~PlayerTest()
@@ -46,9 +46,9 @@ void PlayerTest::gameRun()
 void PlayerTest::gameUpdate(long currentTime)
 {
     int m = gameInput::Update();
-    if(m != 0)
-        k = m;
     if(m != 0 && !isMoving)
+        k = m;
+    if(m != 0 && !isMoving && background->isMovable(m,player->X,player->Y))
     {
         isMoving = true;
         switch(m)
@@ -70,13 +70,13 @@ void PlayerTest::gameUpdate(long currentTime)
         background->UpdateAnimations();
     }
     if(!isMoving)
-        player->Update(k,isMoving);
+        player->Update(k,isMoving,background->getX(),background->getY());
     else
     {
         background->Update(ymov,xmov);
         if((movingTimeAcc += deltaTime*1000) > deltaTime*1000*2.3)
         {
-            player->Update(k,isMoving);
+            player->Update(k,isMoving,background->getX(),background->getY());
             movingTimeAcc = 0;
         }
         if(++i >= 4)
@@ -86,6 +86,7 @@ void PlayerTest::gameUpdate(long currentTime)
             i = 0;
         }
     }
+
 
     if(GEInput::isKeyDown(SDLK_SPACE))
     {

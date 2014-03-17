@@ -10,10 +10,12 @@ private:
     GESpriteSheet *spritesheet;
     unsigned char spriteNbr;
 public:
-    Player();
+    Player(int x, int y);
     virtual ~Player();
-    void Update(int i,bool moving);
+    void Update(int i,bool moving, int x, int y);
     void Draw();
+    int X;
+    int Y;
 };
 
 #endif // GEPLAYER_H

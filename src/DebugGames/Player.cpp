@@ -6,10 +6,12 @@
 #define PLAYER_GO_RIGHT 8
 #define PLAYER_GO_LEFT 5
 
-Player::Player() : GObject(GE_GLOBAL_TILESIZE *4 ,GE_GLOBAL_TILESIZE * 4 - 16 ,GE_GLOBAL_TILESIZE,GE_GLOBAL_TILESIZE,true)
+Player::Player(int x, int y) : GObject(GE_GLOBAL_TILESIZE *4 ,GE_GLOBAL_TILESIZE * 4 - 16 ,GE_GLOBAL_TILESIZE,GE_GLOBAL_TILESIZE,true)
 {
     spriteNbr = 2;
     spritesheet = new GESpriteSheet(GE_GLOBAL_PLAYER_TILEMAP,GE_GLOBAL_TILESIZE);
+    this->X = -x/GE_GLOBAL_TILESIZE + 4;
+    this->Y = -y/GE_GLOBAL_TILESIZE + 4;
 
 }
 
@@ -18,7 +20,7 @@ Player::~Player()
 
 }
 
-void Player::Update(int i,bool moving)
+void Player::Update(int i,bool moving, int x, int y)
 {
     if(!moving)
         spriteNbr = i;
@@ -54,6 +56,9 @@ void Player::Update(int i,bool moving)
                 spriteNbr = 13;
         }
     }
+    this->X = -x/GE_GLOBAL_TILESIZE + 4;
+    this->Y = -y/GE_GLOBAL_TILESIZE + 4;
+
 }
 
 void Player::Draw()

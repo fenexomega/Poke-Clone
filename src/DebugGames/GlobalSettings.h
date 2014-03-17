@@ -6,4 +6,5 @@
 #define PLAYER_GO_RIGHT 10
 #define PLAYER_GO_LEFT 6
 
+
 #endif // GLOBALSETTINGS_H

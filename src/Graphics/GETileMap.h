@@ -17,9 +17,10 @@ private:
 	SDL_Rect rect;
 	GESpriteSheet *spritesheet;
 	ifstream file;
-    vector<int> layer1;
-    vector<int> layer2;
-    vector<int> animatedTiles;
+    int layer1[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
+    int layer2[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
+    int animatedTiles[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
+    int matrixX,matrixY;
     int animatedAux;
 public:
     GETileMap(int x,int y,string filename,string tileimage);
@@ -27,6 +28,7 @@ public:
 	void Draw();
     void UpdateAnimations();
 	void Update(int yVel, int xVel);
+    bool isMovable(int direction,int tileX,int tileY);
 	SDL_Rect * getRect() {
 		return &rect;
 	}

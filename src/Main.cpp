@@ -33,7 +33,7 @@ int main(void) {
 		game.gameUpdate(timer.getSecondTime());
         GEGraphicsCore::clearScreen(0,0,0);
         game.gameDraw();
-//        GEGraphicsCore::Grid(GEColor::Red());
+        GEGraphicsCore::Grid(GEColor::Red());
 		SDL_Flip(screen);
 		if(event.type == SDL_QUIT)
 			break;

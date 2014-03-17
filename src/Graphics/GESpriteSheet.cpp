@@ -13,7 +13,6 @@ GESpriteSheet::GESpriteSheet(string image, unsigned char tileSize) : GObject(0,0
     this->setSprite(image);
 	setW(getSprite()->w);
 	setH(getSprite()->h);
-	int number = (getW() * getH())/tileSize*tileSize;
 	tiles.push_back(NULL);
 	for(int i = 0; i*tileSize < getH(); i++)
 	{
