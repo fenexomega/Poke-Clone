@@ -20,7 +20,7 @@ Player::~Player()
 
 }
 
-void Player::Update(int i,bool moving, int x, int y)
+void Player::Update(int i,bool moving)
 {
     if(!moving)
         spriteNbr = i;
@@ -56,9 +56,14 @@ void Player::Update(int i,bool moving, int x, int y)
                 spriteNbr = 13;
         }
     }
+
+
+}
+
+void Player::UpdatePos(int x, int y)
+{
     this->X = -x/GE_GLOBAL_TILESIZE + 4;
     this->Y = -y/GE_GLOBAL_TILESIZE + 4;
-
 }
 
 void Player::Draw()

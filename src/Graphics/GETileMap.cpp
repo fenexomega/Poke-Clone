@@ -9,8 +9,6 @@
 #include <string>
 #include "../DebugGames/GlobalSettings.h"
 
-extern int testex;
-extern int testey;
 
 GETileMap::GETileMap(int x,int y,string filename,string tileimage)
 {
@@ -63,6 +61,13 @@ GETileMap::GETileMap(int x,int y,string filename,string tileimage)
                 line.erase(0, pos + 1);
             }
         }
+    }
+    std::getline(file,line);
+    while((pos = line.find(',')) != std::string::npos)
+    {
+        word = line.substr(0, pos);
+       unmovableTiles.push_back(std::stoi(word));
+        line.erase(0, pos + 1);
     }
     file.close();
     setX(x);
@@ -137,19 +142,29 @@ bool GETileMap::isMovable(int direction,int tileX,int tileY)
         aux[1] = tileY - 1; break;
     }
 
-//    for(int y = 0; y < matrixY ; y++)
-//    {
-//        for(int x = 0; x < matrixX ; x++)
-//        {
-            cout << aux[0] << " ," << aux[1] << endl;
-            if(layer1[aux[0]][aux[1]] != 68 && layer1[aux[0]][aux[1]] != 67 && layer1[aux[0]][aux[1]] != 16)
+    for(int i = 0; i < unmovableTiles.size() ; ++i)
+    {
+        cout << aux[0] << " ," << aux[1] << " : " << layer1[aux[0]][aux[1]] << endl;
+        if(animatedTiles[aux[0]][aux[1]] != 0 && animatedTiles[aux[0]][aux[1]] == unmovableTiles[i])
+        {
+            return false;
+        }
+        if(animatedTiles[aux[0]][aux[1]] == 0 )
+        {
+            if(layer2[aux[0]][aux[1]] != 0 && layer2[aux[0]][aux[1]] == unmovableTiles[i])
             {
-//                layer1[aux[0]][aux[1]] = 0;
                 return false;
             }
-//        }
-//    }
+            if(layer2[aux[0]][aux[1]] == 0)
+            {
+                if(layer1[aux[0]][aux[1]] == 0 || layer1[aux[0]][aux[1]] == unmovableTiles[i])
+                {
+                    return false;
+                }
+            }
+        }
 
+    }
     return true;
 
 

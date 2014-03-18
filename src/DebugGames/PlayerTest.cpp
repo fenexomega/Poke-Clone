@@ -23,7 +23,7 @@ PlayerTest::PlayerTest()
     ymov = xmov = 0;
     isMoving = false;
     background = new GETileMap(GE_GLOBAL_TILESIZE,-GE_GLOBAL_TILESIZE,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME);
-    player = new Player(background->getX()/(GE_GLOBAL_TILESIZE),background->getY()/(GE_GLOBAL_TILESIZE));
+    player = new Player(background->getX(),background->getY());
 
 }
 
@@ -70,17 +70,21 @@ void PlayerTest::gameUpdate(long currentTime)
         background->UpdateAnimations();
     }
     if(!isMoving)
-        player->Update(k,isMoving,background->getX(),background->getY());
+    {
+        player->UpdatePos(background->getX(),background->getY());
+        player->Update(k,isMoving);
+    }
     else
     {
         background->Update(ymov,xmov);
         if((movingTimeAcc += deltaTime*1000) > deltaTime*1000*2.3)
         {
-            player->Update(k,isMoving,background->getX(),background->getY());
+            player->Update(k,isMoving);
             movingTimeAcc = 0;
         }
         if(++i >= 4)
         {
+            player->UpdatePos(background->getX(),background->getY());
             ymov = xmov = 0;
             isMoving = false;
             i = 0;

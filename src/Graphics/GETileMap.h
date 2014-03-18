@@ -20,6 +20,7 @@ private:
     int layer1[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
     int layer2[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
     int animatedTiles[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
+    vector<int> unmovableTiles;
     int matrixX,matrixY;
     int animatedAux;
 public:

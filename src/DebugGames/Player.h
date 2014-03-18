@@ -12,7 +12,8 @@ private:
 public:
     Player(int x, int y);
     virtual ~Player();
-    void Update(int i,bool moving, int x, int y);
+    void Update(int i,bool moving);
+    void UpdatePos(int x, int y);
     void Draw();
     int X;
     int Y;
