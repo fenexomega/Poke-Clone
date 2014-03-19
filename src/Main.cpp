@@ -21,7 +21,7 @@ int main(void) {
 
 	//TODO FRAMECAP
 	GEGraphicsCore::initGraphics();
-    PlayerTest game;
+    FontTest game;
 	GETimer timer;
 	game.gameInit();
 	while(true)
