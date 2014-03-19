@@ -9,7 +9,7 @@
 Player::Player(int x, int y) : GObject(GE_GLOBAL_TILESIZE *4 ,GE_GLOBAL_TILESIZE * 4 - 16 ,GE_GLOBAL_TILESIZE,GE_GLOBAL_TILESIZE,true)
 {
     spriteNbr = 2;
-    spritesheet = new GESpriteSheet(GE_GLOBAL_PLAYER_TILEMAP,GE_GLOBAL_TILESIZE);
+    spritesheet = new GESpriteSheet(GE_GLOBAL_PLAYER_TILEMAP,GE_GLOBAL_TILESIZE,0);
     this->X = -x/GE_GLOBAL_TILESIZE + 4;
     this->Y = -y/GE_GLOBAL_TILESIZE + 4;
 

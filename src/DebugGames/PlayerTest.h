@@ -27,6 +27,7 @@ private:
     Player *player;
     float timeAux;
     float movingTimeAcc;
+    float stepTimeAux;
 public:
     PlayerTest();
     ~PlayerTest();

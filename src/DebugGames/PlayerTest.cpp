@@ -13,16 +13,16 @@
 const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
 extern float deltaTime;
-
+extern float deltaMedia;
 PlayerTest::PlayerTest()
 {
-    movingTimeAcc = 0;
+    movingTimeAcc = 1000;
     timeAux = 0;
     i = 0;
     k = 2;
     ymov = xmov = 0;
     isMoving = false;
-    background = new GETileMap(GE_GLOBAL_TILESIZE,-GE_GLOBAL_TILESIZE,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME);
+    background = new GETileMap(GE_GLOBAL_TILESIZE,-GE_GLOBAL_TILESIZE,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME,0);
     player = new Player(background->getX(),background->getY());
 
 }
@@ -76,18 +76,21 @@ void PlayerTest::gameUpdate(long currentTime)
     }
     else
     {
-        background->Update(ymov,xmov);
-        if((movingTimeAcc += deltaTime*1000) > deltaTime*1000*2.3)
+        if((movingTimeAcc += deltaTime) > 4*deltaTime)
         {
             player->Update(k,isMoving);
             movingTimeAcc = 0;
         }
-        if(++i >= 4)
+        background->Update(ymov,xmov);
+        if(++i > 3)
         {
             player->UpdatePos(background->getX(),background->getY());
             ymov = xmov = 0;
             isMoving = false;
             i = 0;
+            movingTimeAcc = 1000;
+
+
         }
     }
 

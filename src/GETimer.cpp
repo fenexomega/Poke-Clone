@@ -51,10 +51,23 @@ void GETimer::Update()
 	{
 		passedFrames = 0;
 	}
+    list.push_back(deltaTime);
+    if(list.size() > 5)
+        list.erase(list.begin());
 //	std::cout << "PassedTime: "  <<	oldTime << std::endl;
 //	std::cout << "CurrentTime: " << currentTime << std::endl;
 //	std::cout << "DeltaTime: " 	 << deltaTime << std::endl;
 //	std::cout << "SecondTime: " 	 << currentTime % 1000 << std::endl;
 //	std::cout << "Frames: " 	 << passedFrames << std::endl;
 
+}
+float GETimer::getMedia()
+{
+    float acc = 0;
+    for(int i = 0; i < list.size(); ++i)
+    {
+        acc += list[i];
+    }
+    acc /= list.size();
+    return acc;
 }

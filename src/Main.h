@@ -25,5 +25,6 @@ SDL_Surface * screen;
 SDL_Event event;
 
 float deltaTime;
+float deltaMedia;
 
 #endif /* MAIN_H_ */

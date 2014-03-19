@@ -10,13 +10,13 @@
 #include "../DebugGames/GlobalSettings.h"
 
 
-GETileMap::GETileMap(int x,int y,string filename,string tileimage)
+GETileMap::GETileMap(int x,int y,string filename,string tileimage,int type)
 {
     animatedAux = 0;
     int pos;
     string line,word;
     // Colocar imagem de spritesheet na surface
-    spritesheet = new GESpriteSheet(tileimage,GE_GLOBAL_TILESIZE);
+    spritesheet = new GESpriteSheet(tileimage,GE_GLOBAL_TILESIZE,type);
     filename = GE_GLOBAL_FILE_PATH + filename;
     file.open((filename).c_str());
     if(file == NULL)
@@ -144,7 +144,7 @@ bool GETileMap::isMovable(int direction,int tileX,int tileY)
 
     for(int i = 0; i < unmovableTiles.size() ; ++i)
     {
-        cout << aux[0] << " ," << aux[1] << " : " << layer1[aux[0]][aux[1]] << endl;
+        //GE_LOG(aux[0] << " ," << aux[1] << " : " << layer1[aux[0]][aux[1]]);
         if(animatedTiles[aux[0]][aux[1]] != 0 && animatedTiles[aux[0]][aux[1]] == unmovableTiles[i])
         {
             return false;

@@ -24,7 +24,7 @@ private:
     int matrixX,matrixY;
     int animatedAux;
 public:
-    GETileMap(int x,int y,string filename,string tileimage);
+    GETileMap(int x,int y,string filename,string tileimage,int type);
 	virtual ~GETileMap();
 	void Draw();
     void UpdateAnimations();

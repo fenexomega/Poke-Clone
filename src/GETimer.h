@@ -9,8 +9,10 @@
 #define TIMER_H_
 #include <SDL/SDL.h>
 #include "GEGlobal.h"
+#include <vector>
 
-//TODO EVERYTHING
+
+using namespace std;
 
 class GETimer
 {
@@ -20,6 +22,7 @@ private:
     float deltaTime;
 	unsigned long long passedTime;
 	unsigned int passedFrames;
+    vector<float> list;
 public:
 	GETimer();
 
@@ -34,6 +37,8 @@ public:
 	long getSecondTime();
 
 	void Update();
+
+    float getMedia();
 };
 
 #endif /* TIMER_H_ */

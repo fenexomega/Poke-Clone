@@ -32,13 +32,13 @@ void GEGraphicsCore::DrawRectangle(int x, int y, int w,int h,Uint32 color)
 }
 
 
-void GEGraphicsCore::Grid(Uint32 color )
+void GEGraphicsCore::Grid(Uint32 color ,int size)
 {
-    for(int x = 0; x < GE_GLOBAL_SCREEN_WIDTH; x += GE_GLOBAL_TILESIZE)
+    for(int x = 0; x < GE_GLOBAL_SCREEN_WIDTH; x += size)
     {
         GEGraphicsCore::DrawRectangle(x,0,1,GE_GLOBAL_SCREEN_HEIGHT,color);
     }
-    for(int y = 0; y < GE_GLOBAL_SCREEN_HEIGHT; y += GE_GLOBAL_TILESIZE)
+    for(int y = 0; y < GE_GLOBAL_SCREEN_HEIGHT; y += size)
     {
         GEGraphicsCore::DrawRectangle(0,y,GE_GLOBAL_SCREEN_WIDTH,1,color);
     }

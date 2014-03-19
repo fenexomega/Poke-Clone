@@ -7,13 +7,14 @@
 
 #include "GESpriteSheet.h"
 
-GESpriteSheet::GESpriteSheet(string image, unsigned char tileSize) : GObject(0,0,0,0,true)
+GESpriteSheet::GESpriteSheet(string image, unsigned char tileSize,int type) : GObject(0,0,0,0,true)
 {
 	SDL_Rect *auxRect;
     this->setSprite(image);
 	setW(getSprite()->w);
 	setH(getSprite()->h);
-	tiles.push_back(NULL);
+    if(type == 0) //Se for mapa...
+        tiles.push_back(NULL); //adicione um tile null, para que comece do 1.
 	for(int i = 0; i*tileSize < getH(); i++)
 	{
 		for(int x = 0; x < getW(); x += tileSize)
@@ -25,12 +26,12 @@ GESpriteSheet::GESpriteSheet(string image, unsigned char tileSize) : GObject(0,0
 			tiles.push_back(auxRect);
 		}
 
+
 	}
 }
 
 GESpriteSheet::~GESpriteSheet()
 {
-	// TODO Auto-generated destructor stub
 
 }
 

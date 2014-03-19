@@ -28,13 +28,19 @@ add_executable( game
 	src/DebugGames/CollisionTest.cpp
 	src/DebugGames/ScrollingTest.cpp
         src/DebugGames/PlayerTest.cpp
-        src/DebugGames/tilemap.map
         src/DebugGames/Player.cpp
         src/DebugGames/gameInput.cpp
         src/DebugGames/GlobalSettings.h
+        src/DebugGames/BattleTest.cpp
+        src/DebugGames/FontTest.cpp
+        src/DebugGames/font.cpp
+        src/DebugGames/tilemap.map
 
         src/Game/finalGame.cpp
+#        src/Game/Player.cpp
+#        src/Game/gameInput.cpp
+#        src/Game/GlobalSettings.h
 )
-set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -g")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -g ")
 #file(COPY
 target_link_libraries(game ${SDL_LIBRARY} ${SDL_IMAGE_LIBRARY} ${SDL_TTF_LIBRARY} )

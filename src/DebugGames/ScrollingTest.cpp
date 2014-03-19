@@ -16,7 +16,7 @@ extern float deltaTime;
 ScrollingTest::ScrollingTest() {
     ymov = xmov = 0;
     isMoving = false;
-    background = new GETileMap(0,0,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME);
+    background = new GETileMap(0,0,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME,0);
 }
 
 ScrollingTest::~ScrollingTest() {

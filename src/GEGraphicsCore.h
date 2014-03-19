@@ -21,7 +21,7 @@ public:
 	GEGraphicsCore();
 
     static void DrawRectangle(int x, int y, int w,int h,Uint32 color);
-    static void Grid(Uint32 color );
+    static void Grid(Uint32 color, int size );
 	static void drawSurface_Rect(SDL_Surface* source, SDL_Surface* destination,
 			SDL_Rect offset);
 
