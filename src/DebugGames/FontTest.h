@@ -2,12 +2,16 @@
 #define FONTTEST_H
 #include "../GEGame.h"
 #include "font.h"
+#include "Word.h"
+#include "../Graphics/GEBackground.h"
 
 class FontTest : public GEGame
 {
 private:
     Font *font;
     bool aux;
+    Word *word;
+    GEBackground *textBackground;
 public:
     FontTest();
     virtual ~FontTest();

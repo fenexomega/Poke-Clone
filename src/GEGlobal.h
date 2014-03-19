@@ -13,7 +13,7 @@
 #define GE_GLOBAL_SCREEN_WIDTH 640
 #define GE_GLOBAL_SCREEN_BPP 32
 #define GE_GLOBAL_FPS 20
-#define GE_GLOBAL_FILE_PATH "/home/jordy/Área de Trabalho/TRABALHO SI C++/src/DebugGames/"
+#define GE_GLOBAL_FILE_PATH  "/home/jordy/Área de Trabalho/TRABALHO SI C++/src/DebugGames/"
 #define GE_GLOBAL_WORLD_TILEMAP_NAME "tileimage4x.png"
 #define GE_GLOBAL_TILE_MAP_FILE "tilemap.map"
 #define GE_GLOBAL_PLAYER_TILEMAP "playersprites4x.png"
@@ -22,6 +22,7 @@
 #define GE_GLOBAL_COLOR_KEY_FOR_ALPHA 255,0,0
 #define GE_GLOBAL_MAP_HEIGHT_IN_TILES 20
 #define GE_GLOBAL_MAP_WIDTH_IN_TILES 20
+
 
 #define GE_LOG(STRING) cout << STRING << endl
 #define GE_MAX(A,B) (A) > (B) ? (A) : (B)

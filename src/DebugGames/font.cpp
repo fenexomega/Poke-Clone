@@ -164,47 +164,29 @@ int Font::GetLetterNumber(char c)
 }
 
 
-bool Font::WriteWithTime(string s, int x, int y, int limitx, int limity)
+void Font::WriteChar(char c,int x, int y)
 {
-
-    if(!showing)
-    {
-        iaux = 0;
-        showing = true;
-        timeAux = 0;
-    }
-    else
-    {
-        if((timeAux += deltaTime * 100) > 5)
-        {
-            iaux++;
-            timeAux = 0;
-            if(iaux >= s.size())
-                   showing = false;
-        }
-    }
-    WriteString(s.substr(0,iaux),x,y,limitx,limity);
-    return !showing; //Retorna se acabou
-
+    int n = GetLetterNumber(c);
+    GEGraphicsCore::drawSurface_Pos(x,y,letters->getSprite(),screen,letters->getRect(n));
 }
 
 
-void Font::WriteString(string s, int x, int y, int limitx, int limity)
+void Font::WriteString(string s, int x, int y,int maximumWidth)
 {
-    int n, auxX;
-    int aux = 0;
-    int coef = limitx; //GE_GLOBAL_SCREEN_WIDTH/(GE_GLOBAL_TILESIZE/2);
+    int auxX;
+    int aux = 0; //GE_GLOBAL_SCREEN_WIDTH/(GE_GLOBAL_TILESIZE/2)
     y *= GE_GLOBAL_TILESIZE/2;
     for(int i = 0; i < s.size(); ++i)
     {
-        auxX = ((x + i)%coef * 32);
-        n = GetLetterNumber(s[i]);
-        GEGraphicsCore::drawSurface_Pos(auxX,y,letters->getSprite(),screen,letters->getRect(n));
-        if(i >= coef + (coef * aux) - 1)
+        if(i >= maximumWidth + (maximumWidth * aux) )
         {
             aux++;
-            y += GE_GLOBAL_TILESIZE/2;
+            y += GE_GLOBAL_TILESIZE;
         }
+        auxX = ((i%maximumWidth + 1) * 32);
+        if(auxX == 0 && x > 0)
+            auxX = x*32;
+        WriteChar(s[i],auxX,y);
 
     }
 }

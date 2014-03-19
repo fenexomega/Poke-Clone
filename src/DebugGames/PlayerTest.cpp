@@ -19,6 +19,7 @@ PlayerTest::PlayerTest()
     movingTimeAcc = 1000;
     timeAux = 0;
     i = 0;
+    stepTimeAux = 0;
     k = 2;
     ymov = xmov = 0;
     isMoving = false;
@@ -64,7 +65,7 @@ void PlayerTest::gameUpdate(long currentTime)
         }
     }
 
-    if((timeAux += deltaTime*1000) > 400 )
+    if((timeAux += deltaTime) > 400 )
     {
         timeAux = 0;
         background->UpdateAnimations();
@@ -76,7 +77,7 @@ void PlayerTest::gameUpdate(long currentTime)
     }
     else
     {
-        if((movingTimeAcc += deltaTime) > 4*deltaTime)
+        if((movingTimeAcc += deltaTime) > 200)
         {
             player->Update(k,isMoving);
             movingTimeAcc = 0;
@@ -88,7 +89,7 @@ void PlayerTest::gameUpdate(long currentTime)
             ymov = xmov = 0;
             isMoving = false;
             i = 0;
-            movingTimeAcc = 1000;
+            movingTimeAcc = 200;
 
 
         }

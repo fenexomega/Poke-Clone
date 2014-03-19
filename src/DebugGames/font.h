@@ -18,8 +18,8 @@ public:
     Font();
     virtual ~Font();
     int GetLetterNumber(char c);
-    void WriteString(string s,int x,int y, int limitx, int limity);
-    bool WriteWithTime(string s, int x, int y, int limitx, int limity);
+    void WriteString(string s,int x,int y,int coef);
+    void WriteChar(char c,int x, int y);
 };
 
 #endif // FONT_H

@@ -35,7 +35,7 @@ add_executable( game
         src/DebugGames/FontTest.cpp
         src/DebugGames/font.cpp
         src/DebugGames/tilemap.map
-
+        src/DebugGames/Word.cpp
         src/Game/finalGame.cpp
 #        src/Game/Player.cpp
 #        src/Game/gameInput.cpp
