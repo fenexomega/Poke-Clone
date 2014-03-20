@@ -9,7 +9,6 @@ FontTest::FontTest()
     font = new Font();
     aux = false;
     word = new Word(frase,1,14,17,font);
-    textBackground = new GEBackground(0,GE_GLOBAL_TILESIZE * 6, "textbackground4x.png");
 }
 
 FontTest::~FontTest()
@@ -30,21 +29,21 @@ void FontTest::gameRun()
 
 void FontTest::gameUpdate(long currentTime)
 {
-    if(aux)
         if(GEInput::isKeyDown(SDLK_SPACE))
         {
-            aux = false;
-            word->setString(frase);
+            word->Begin(frase);
         }
+        if(GEInput::isKeyDown(SDLK_a))
+        {
+            aux = false;
+            word->Continue();
+        }
+
 }
 
 void FontTest::gameDraw()
 {
-    textBackground->Draw();
-    if(!aux)
-        aux = word->WriteInDelay();
-    else
-       word->Write();
+    word->Draw();
 }
 
 void FontTest::gameDispose()

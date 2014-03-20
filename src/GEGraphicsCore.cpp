@@ -8,16 +8,14 @@
 #include "GEGraphicsCore.h"
 
 GEGraphicsCore::GEGraphicsCore() {
-    // TODO Auto-generated constructor stub
 
 }
 
 GEGraphicsCore::~GEGraphicsCore() {
-    // TODO Auto-generated destructor stub
 }
 
 void GEGraphicsCore::drawSurface_Rect(SDL_Surface* src, SDL_Surface* dest, SDL_Rect offset) {
-    //BLIT Surface
+    //Colar a surface src na surface Destino
     SDL_BlitSurface(src, NULL, dest, &offset);
 }
 

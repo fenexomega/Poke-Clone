@@ -16,12 +16,13 @@
 #include "DebugGames/ScrollingTest.h"
 #include "DebugGames/PlayerTest.h"
 #include "DebugGames/FontTest.h"
+#include "DebugGames/DialogueTest.h"
 
 int main(void) {
 
 	//TODO FRAMECAP
 	GEGraphicsCore::initGraphics();
-    FontTest game;
+    DialogueTest game;
 	GETimer timer;
 	game.gameInit();
 	while(true)

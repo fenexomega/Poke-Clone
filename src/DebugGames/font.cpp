@@ -158,7 +158,7 @@ int Font::GetLetterNumber(char c)
         return 71;
     case '-':
         return 72;
-    default: return -1;
+    default: return 66;
     }
 
 }
