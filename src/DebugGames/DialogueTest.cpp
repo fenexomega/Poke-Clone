@@ -10,12 +10,19 @@
 #include "../GETimer.h"
 #include "gameInput.h"
 #include "GlobalSettings.h"
+#include "../GEParser.h"
+
 const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
 extern float deltaTime;
-extern float deltaMedia;
+
+string frasePlaca = "Bem-vindo a lugarnenhum!";
+string fraseMercado = "Mercado daora. O slogan do mercadoainda nao foi    implementado!";
+
 DialogueTest::DialogueTest()
 {
+
+    word = new Word(TEXT_POSITION_X,TEXT_POSITION_Y,TEXT_LIMIT);
     movingTimeAcc = 1000;
     timeAux = 0;
     i = 0;
@@ -23,46 +30,61 @@ DialogueTest::DialogueTest()
     k = 2;
     ymov = xmov = 0;
     isMoving = false;
-    background = new GETileMap(GE_GLOBAL_TILESIZE,-GE_GLOBAL_TILESIZE,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME,0);
+    background = new GETileMap(-GE_GLOBAL_TILESIZE*2,-GE_GLOBAL_TILESIZE*4,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME,0);
     player = new Player(background->getX(),background->getY());
-
+    objects.push_back(new GameObject(12,7,0,1,frasePlaca) );
+    objects.push_back(new GameObject(18,15,0,1,fraseMercado) );
 }
 
-DialogueTest::~DialogueTest()
-{
-
-}
-
-void DialogueTest::gameInit()
-{
-
-
-}
-
-void DialogueTest::gameRun()
-{
-
-}
 
 void DialogueTest::gameUpdate(long currentTime)
 {
     int m = gameInput::Update();
-    if(m != 0 && !isMoving)
-        k = m;
-    if(m != 0 && !isMoving && background->isMovable(m,player->X,player->Y))
+    if(m != 0 && !isMoving && !word->isActive())
     {
-        i = 0;
-        isMoving = true;
-        switch(m)
+        k = m;
+        if(background->isMovable(m,player->X,player->Y))
         {
-        case PLAYER_GO_UP:
-            ymov = STEP_DIST; break;
-        case PLAYER_GO_DOWN:
-            ymov = -STEP_DIST; break;
-        case PLAYER_GO_RIGHT:
-            xmov = -STEP_DIST; break;
-        case PLAYER_GO_LEFT:
-            xmov = STEP_DIST; break;
+            i = 0;
+            isMoving = true;
+            switch(m)
+            {
+            case PLAYER_GO_UP:
+                ymov = STEP_DIST; break;
+            case PLAYER_GO_DOWN:
+                ymov = -STEP_DIST; break;
+            case PLAYER_GO_RIGHT:
+                xmov = -STEP_DIST; break;
+            case PLAYER_GO_LEFT:
+                xmov = STEP_DIST; break;
+            }
+        }
+    }
+
+    //Checar se o jogador quer falar com algum objeto
+    if(!isMoving)
+    {
+        if(GEInput::isKeyDown(GEInput::z) || GEInput::isKeyDown(GEInput::x))
+        {
+            if(word->isActive())
+                word->Continue();
+            else
+            {
+                if(GEInput::isKeyDown(GEInput::z))
+                {
+                    for (int var = 0; var < objects.size(); ++var)
+                    {
+                        if(player->inFrontOf(objects[var]))
+                        {
+                            if(objects[var]->isTalkable())
+                            {
+                                word->Begin(objects[var]->getPhrase());
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -98,6 +120,7 @@ void DialogueTest::gameDraw()
     background->Draw();
     for(int i = 0; i < objects.size(); i++)
         objects[i]->Draw();
+    word->Draw();
     anima.UpAndDown();
     player->Draw();
 
@@ -105,7 +128,15 @@ void DialogueTest::gameDraw()
 
 void DialogueTest::gameDispose()
 {
+    for(int i = 0; i < objects.size();++i)
+        delete objects[i];
+    delete player;
+    delete word;
     delete background;
 }
 
+DialogueTest::~DialogueTest()
+{
+
+}
 

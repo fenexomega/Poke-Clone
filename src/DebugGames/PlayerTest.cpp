@@ -96,7 +96,7 @@ void PlayerTest::gameUpdate(long currentTime)
     }
 
 
-    if(GEInput::isKeyDown(SDLK_SPACE))
+    if(GEInput::isKeyDown(GEInput::SPACE))
     {
         anima.Begin();
     }

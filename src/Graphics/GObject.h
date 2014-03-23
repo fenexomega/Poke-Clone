@@ -11,6 +11,8 @@
 #include "../GEGraphicsCore.h"
 #include <iostream>
 
+using namespace std;
+
 class GObject {
 private:
 	SDL_Rect rect;
@@ -26,6 +28,7 @@ public:
 	GObject(int x, int y, int w, int h,bool visible,unsigned char collisionmask);
 	GObject(int x, int y, int w, int h,bool visible,unsigned char r,unsigned char g,unsigned char b);
 	virtual ~GObject();
+    virtual void Draw() = 0;
 
     void setColorKey(Uint32 c)
     {
@@ -68,8 +71,6 @@ public:
 	void setY(int y) {
 		this->rect.y = y;
 	}
-
-	virtual void Draw() = 0;
 
 	Uint32 getColor() const {
 		return color;

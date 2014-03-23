@@ -12,6 +12,8 @@
 
 GETileMap::GETileMap(int x,int y,string filename,string tileimage,int type)
 {
+    X = x/GE_GLOBAL_TILESIZE;
+    Y = y/GE_GLOBAL_TILESIZE;
     animatedAux = 0;
     int pos;
     string line,word;
@@ -20,56 +22,24 @@ GETileMap::GETileMap(int x,int y,string filename,string tileimage,int type)
     filename = GE_GLOBAL_FILE_PATH + filename;
     file.open((filename).c_str());
     if(file == NULL)
-        cout << "ERRO: " << filename << " \n Não pode ser aberto!" << endl;
+        GE_LOG("ERRO: " << filename << " \n Não pode ser aberto!");
     matrixX = GE_GLOBAL_MAP_WIDTH_IN_TILES;
     matrixY = GE_GLOBAL_MAP_HEIGHT_IN_TILES;
-    std::getline(file,line);
-    for(int y = 0; y < matrixY ; y++)
-    {
-        for(int x = 0; x < matrixX ; x++)
-        {
-            if((pos = line.find(',')) != std::string::npos)
-            {
-                word = line.substr(0, pos);
-                layer1[x][y] = std::stoi(word);
-                line.erase(0, pos + 1);
-            }
-        }
-    }
-    std::getline(file,line);
-    for(int y = 0; y < matrixY ; ++y)
-    {
-        for(int x = 0; x < matrixX ; ++x)
-        {
-            if((pos = line.find(',')) != std::string::npos)
-            {
-                word = line.substr(0, pos);
-                layer2[x][y] = std::stoi(word);
-                line.erase(0, pos + 1);
-            }
-        }
-    }
-    std::getline(file,line);
-    for(int y = 0; y < matrixY ; ++y)
-    {
-        for(int x = 0; x < matrixX ; ++x)
-        {
-            if((pos = line.find(',')) != std::string::npos)
-            {
-                word = line.substr(0, pos);
-                animatedTiles[x][y] = std::stoi(word);
-                line.erase(0, pos + 1);
-            }
-        }
-    }
+
+    GEParser::ReadMapData(GE_GLOBAL_MAP_JSON_FILE,"Base","data",layer1);
+    GEParser::ReadMapData(GE_GLOBAL_MAP_JSON_FILE,"Objetos","data",layer2);
+    GEParser::ReadMapData(GE_GLOBAL_MAP_JSON_FILE,"Animados","data",animatedTiles);
+
+
     std::getline(file,line);
     while((pos = line.find(',')) != std::string::npos)
     {
         word = line.substr(0, pos);
-       unmovableTiles.push_back(std::stoi(word));
+        unmovableTiles.push_back(std::stoi(word));
         line.erase(0, pos + 1);
     }
     file.close();
+
     setX(x);
     setY(y);
 }
@@ -104,13 +74,19 @@ void GETileMap::Update(int yVel, int xVel)
 {
     setX(getX() + xVel);
     setY(getY() + yVel);
+    X += xVel/GE_GLOBAL_TILESIZE;
+    Y += yVel/GE_GLOBAL_TILESIZE;
 }
 
 void GETileMap::Draw()
 {
-    for(int y = 0; y < matrixY ; y++)
+    int x = GE_MAX(0,-(getX()/GE_GLOBAL_TILESIZE));
+    int y = GE_MAX(0,-(getY()/GE_GLOBAL_TILESIZE));
+    int limitY = GE_MIN(matrixY,((GE_GLOBAL_SCREEN_HEIGHT/GE_GLOBAL_TILESIZE) + y + 1));
+    int limitX = GE_MIN(matrixX,((GE_GLOBAL_SCREEN_WIDTH/GE_GLOBAL_TILESIZE) + x + 1));
+    for(; y < limitY ; y++)
     {
-        for(int x = 0; x < matrixX ; x++)
+        for(x = GE_MAX(0,-(getX()/GE_GLOBAL_TILESIZE)); x < limitX ; x++)
         {
             if(layer1[x][y] != 0)
                 GEGraphicsCore::drawSurface_Pos((x * GE_GLOBAL_TILESIZE) + getX(),(y * GE_GLOBAL_TILESIZE) + getY(),spritesheet->getSprite(),screen,spritesheet->getRect(layer1[x][y]));
@@ -120,7 +96,6 @@ void GETileMap::Draw()
                 GEGraphicsCore::drawSurface_Pos((x * GE_GLOBAL_TILESIZE) + getX(),(y * GE_GLOBAL_TILESIZE) + getY(),spritesheet->getSprite(),screen,spritesheet->getRect(animatedTiles[x][y]));
         }
     }
-
 }
 
 bool GETileMap::isMovable(int direction,int tileX,int tileY)
@@ -144,7 +119,6 @@ bool GETileMap::isMovable(int direction,int tileX,int tileY)
 
     for(int i = 0; i < unmovableTiles.size() ; ++i)
     {
-        //GE_LOG(aux[0] << " ," << aux[1] << " : " << layer1[aux[0]][aux[1]]);
         if(animatedTiles[aux[0]][aux[1]] != 0 && animatedTiles[aux[0]][aux[1]] == unmovableTiles[i])
         {
             return false;
@@ -163,11 +137,8 @@ bool GETileMap::isMovable(int direction,int tileX,int tileY)
                 }
             }
         }
-
     }
     return true;
-
-
 }
 
 GETileMap::~GETileMap() {

@@ -8,22 +8,22 @@ int gameInput::Update()
 {
     if(GEInput::isAnyKeyDown())
     {
-            if(GEInput::isKeyPressed(SDLK_DOWN))
+            if(GEInput::isKeyPressed(GEInput::DOWN))
             {
                 return PLAYER_GO_DOWN;
             }
             else
-            if(GEInput::isKeyPressed(SDLK_UP))
+            if(GEInput::isKeyPressed(GEInput::UP))
             {
                 return PLAYER_GO_UP;
             }
             else
-            if(GEInput::isKeyPressed(SDLK_RIGHT))
+            if(GEInput::isKeyPressed(GEInput::RIGHT))
             {
                 return PLAYER_GO_RIGHT;
             }
             else
-            if(GEInput::isKeyPressed(SDLK_LEFT))
+            if(GEInput::isKeyPressed(GEInput::LEFT))
             {
                 return PLAYER_GO_LEFT;
             }

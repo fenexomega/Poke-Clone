@@ -5,6 +5,8 @@
 #define PLAYER_GO_UP 14
 #define PLAYER_GO_RIGHT 10
 #define PLAYER_GO_LEFT 6
-
+#define TEXT_POSITION_X 1
+#define TEXT_POSITION_Y 14
+#define TEXT_LIMIT 17
 
 #endif // GLOBALSETTINGS_H

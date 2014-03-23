@@ -17,18 +17,20 @@ private:
     int x;
     int y;
     int limit;
-    bool showing;
+    bool animated;
     bool active;
     int i;
     float timeAux;
     GEBackground *background;
 public:
     Word(string s, int x, int y, int limit,Font *font);
+    Word(int x, int y, int limit);
     bool WriteInDelay();
     void Write();
     void Begin(string s);
     bool Continue();
     void Draw();
+    bool isActive();
     virtual ~Word();
 };
 

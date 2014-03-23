@@ -1,11 +1,5 @@
 #include "Player.h"
 
-
-#define PLAYER_GO_DOWN 2
-#define PLAYER_GO_UP 11
-#define PLAYER_GO_RIGHT 8
-#define PLAYER_GO_LEFT 5
-
 Player::Player(int x, int y) : GObject(GE_GLOBAL_TILESIZE *4 ,GE_GLOBAL_TILESIZE * 4 - 16 ,GE_GLOBAL_TILESIZE,GE_GLOBAL_TILESIZE,true)
 {
     spriteNbr = 2;
@@ -22,6 +16,7 @@ Player::~Player()
 
 void Player::Update(int i,bool moving)
 {
+    orientation = i;
     if(!moving)
         spriteNbr = i;
     else
@@ -57,7 +52,6 @@ void Player::Update(int i,bool moving)
         }
     }
 
-
 }
 
 void Player::UpdatePos(int x, int y)
@@ -69,4 +63,24 @@ void Player::UpdatePos(int x, int y)
 void Player::Draw()
 {
     GEGraphicsCore::drawSurface_Pos(getX(),getY(),spritesheet->getSprite(),screen,spritesheet->getRect(spriteNbr));
+}
+
+bool Player::inFrontOf(GameObject *obj)
+{
+    switch(orientation)
+    {
+    case PLAYER_GO_DOWN:
+        auxX = X;
+        auxY = Y + 1; break;
+    case PLAYER_GO_UP:
+        auxX = X;
+        auxY = Y - 1; break;
+    case PLAYER_GO_LEFT:
+        auxX = X - 1;
+        auxY = Y; break;
+    case PLAYER_GO_RIGHT:
+        auxX = X + 1;
+        auxY = Y; break;
+    }
+    return (obj->X == auxX) && (obj->Y == auxY);
 }

@@ -13,8 +13,6 @@
 class GEGame
 {
 public:
-	virtual void gameInit() = 0;
-	virtual void gameRun() = 0;
 	virtual void gameUpdate(long currentTime) = 0;
     virtual void gameDraw() = 0;
 	virtual void gameDispose() = 0;
@@ -23,15 +21,6 @@ public:
 
 /*
 
-void Game::gameInit()
-{
-
-}
-
-void Game::gameRun()
-{
-
-}
 
 void Game::gameUpdate(long currentTime)
 {

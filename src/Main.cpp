@@ -11,7 +11,6 @@
 #include "Main.h"
 
 //#include "Game/Game.h"
-//#include "DebugGames/InputTest.h"
 #include "DebugGames/CollisionTest.h"
 #include "DebugGames/ScrollingTest.h"
 #include "DebugGames/PlayerTest.h"
@@ -24,8 +23,7 @@ int main(void) {
 	GEGraphicsCore::initGraphics();
     DialogueTest game;
 	GETimer timer;
-	game.gameInit();
-	while(true)
+    while(event.type != SDL_QUIT)
 	{
 		SDL_PollEvent(&event);
         timer.Update();
@@ -35,10 +33,9 @@ int main(void) {
 		game.gameUpdate(timer.getSecondTime());
         GEGraphicsCore::clearScreen(0,0,0);
         game.gameDraw();
-        GEGraphicsCore::Grid(GEColor::Red(),8 * 4);
+//        GEGraphicsCore::Grid(GEColor::Red(),16 * 4);
 		SDL_Flip(screen);
-        if(event.type == SDL_QUIT)
-			break;
+
 	}
 	game.gameDispose();
 	SDL_Quit();

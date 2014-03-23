@@ -9,7 +9,6 @@ class FontTest : public GEGame
 {
 private:
     Font *font;
-    bool aux;
     Word *word;
     GEBackground *textBackground;
 public:

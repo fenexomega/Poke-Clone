@@ -41,22 +41,22 @@ void ScrollingTest::gameUpdate(long currentTime)
     {
         if(!isMoving)
         {
-            if(GEInput::isKeyPressed(SDLK_DOWN))
+            if(GEInput::isKeyPressed(GEInput::DOWN))
             {
                 ymov = -STEP_DIST;
             }
             else
-            if(GEInput::isKeyPressed(SDLK_UP))
+            if(GEInput::isKeyPressed(GEInput::UP))
             {
                 ymov = +STEP_DIST;
             }
             else
-            if(GEInput::isKeyPressed(SDLK_RIGHT))
+            if(GEInput::isKeyPressed(GEInput::RIGHT))
             {
                 xmov = -STEP_DIST;
             }
             else
-            if(GEInput::isKeyPressed(SDLK_LEFT))
+            if(GEInput::isKeyPressed(GEInput::LEFT))
             {
                 xmov = +STEP_DIST;
             }
@@ -74,7 +74,7 @@ void ScrollingTest::gameUpdate(long currentTime)
             isMoving = false;
         }
     }
-    if(GEInput::isKeyDown(SDLK_SPACE))
+    if(GEInput::isKeyDown(GEInput::SPACE))
     {
         anima.Begin();
     }

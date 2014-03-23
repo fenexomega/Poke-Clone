@@ -8,24 +8,48 @@ Word::Word(string s, int x, int y, int limit, Font *font)
     this->y = y;
     this->limit = limit;
     this->font = font;
-    showing = false;
+    animated = false;
+    background = new GEBackground(0,GE_GLOBAL_TILESIZE * 6, "textbackground4x.png");
+    this->active = false;
+}
+
+Word::Word(int x, int y, int limit)
+{
+    this->x = x;
+    this->y = y;
+    this->limit = limit;
+    this->font = new Font();
+    animated = false;
+    this->active = false;
     background = new GEBackground(0,GE_GLOBAL_TILESIZE * 6, "textbackground4x.png");
 }
 
 void Word::Begin(string s)
 {
     this->phrase = s;
+    active = true;
+    animated = false;
     Continue();
 }
 
+bool Word::isActive()
+{
+    return active;
+}
 
 bool Word::Continue()
 {
-    s = phrase.substr(0,limit*2);
-    phrase.erase(0,limit*2);
+    if(!animated)
+    {
+        s = phrase.substr(0,limit*2);
+        phrase.erase(0,limit*2);
+    }
     i = 0;
     timeAux = 0;
-    showing = true;
+    if(animated)
+        animated = false;
+    else
+        animated = true;
     active = !s.empty();
     return active;
 }
@@ -43,7 +67,7 @@ void Word::Draw()
 bool Word::WriteInDelay()
 {
 
-    if(showing)
+    if(animated)
     {
         if((timeAux += deltaTime ) > 50)
         {
@@ -54,12 +78,12 @@ bool Word::WriteInDelay()
                 i = s.size();
                 font->WriteString(s.substr(0,i),x,y,limit);
                 font->WriteChar('>',32*18,16*32);
-                return !(showing = false);
+                return !(animated = false);
             }
         }
         font->WriteString(s.substr(0,i),x,y,limit);
     }
-    return !showing; //Retorna se acabou
+    return !animated; //Retorna se acabou
 
 }
 

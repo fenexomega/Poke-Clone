@@ -10,7 +10,7 @@
 
 #include "GESpriteSheet.h"
 #include <fstream>
-
+#include "../GEParser.h"
 
 class GETileMap {
 private:
@@ -24,6 +24,8 @@ private:
     int matrixX,matrixY;
     int animatedAux;
 public:
+    int X;
+    int Y;
     GETileMap(int x,int y,string filename,string tileimage,int type);
 	virtual ~GETileMap();
 	void Draw();
@@ -34,9 +36,9 @@ public:
 		return &rect;
 	}
 
-	int getX() const {
-		return rect.x;
-	}
+    int getX() const {
+        return rect.x;
+    }
 
 	void setX(int x) {
 		this->rect.x = x;

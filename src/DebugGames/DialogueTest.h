@@ -6,17 +6,20 @@
 #include "../Graphics/GELoadingAnimation.h"
 #include <vector>
 #include "Player.h"
+#include "Word.h"
+#include "GameObject.h"
 using namespace std;
 
 class DialogueTest: public GEGame {
 private:
+    Word *word;
     GELoadingAnimation anima;
     int i;
     int k;
     int time;
     int ymov, xmov;
     GETileMap * background;
-    vector<GObject *> objects;
+    vector<GameObject *> objects;
     bool isMoving;
     Player *player;
     float timeAux;
@@ -25,8 +28,6 @@ private:
 public:
     DialogueTest();
     ~DialogueTest();
-    void gameInit();
-    void gameRun();
     void gameUpdate(long currentTime);
     void gameDraw();
     void gameDispose();
