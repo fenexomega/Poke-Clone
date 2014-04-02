@@ -28,11 +28,13 @@ public:
 	static void drawSurface_Pos(int x, int y, SDL_Surface* source,
 			SDL_Surface* destination,SDL_Rect *sourceRect);
 
-	static void clearScreen(unsigned char r,unsigned char  g,unsigned char  b);
+	static void clearScreen( char r, char  g, char  b);
 
 	static void clearScreen(Uint32 color);
 
 	static bool initGraphics();
+
+    static void UpdateScreen();
 
 	static SDL_Surface *loadSprite(string location);
 

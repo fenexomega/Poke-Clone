@@ -14,9 +14,9 @@
 
 class GEPhysics {
 public:
-	static const unsigned char NO_COL = 0;
- 	static const unsigned char X_AXIS_COL = 1;
-	static const unsigned char Y_AXIS_COL = 2;
+	static const  char NO_COL = 0;
+ 	static const  char X_AXIS_COL = 1;
+	static const  char Y_AXIS_COL = 2;
 	GEPhysics();
 	static bool isColliding(GObject *obj1,GObject  *obj2);
 	static int isOnBorders(GObject *obj);

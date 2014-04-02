@@ -14,6 +14,11 @@ GEGraphicsCore::GEGraphicsCore() {
 GEGraphicsCore::~GEGraphicsCore() {
 }
 
+void GEGraphicsCore::UpdateScreen()
+{
+    SDL_Flip(screen);
+}
+
 void GEGraphicsCore::drawSurface_Rect(SDL_Surface* src, SDL_Surface* dest, SDL_Rect offset) {
     //Colar a surface src na surface Destino
     SDL_BlitSurface(src, NULL, dest, &offset);
@@ -52,7 +57,7 @@ void GEGraphicsCore::drawSurface_Pos(int x, int y, SDL_Surface* source,
     SDL_BlitSurface(source, sourceRect, destination, &offset);
 }
 
-void GEGraphicsCore::clearScreen(unsigned char r,unsigned char g, unsigned char b) {
+void GEGraphicsCore::clearScreen( char r, char g,  char b) {
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, r, g, b));
 }
 

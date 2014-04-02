@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Global.h
  *
  *  Created on: 12/02/2014

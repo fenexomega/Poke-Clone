@@ -107,7 +107,7 @@ void PlayerTest::gameUpdate(long currentTime)
 void PlayerTest::gameDraw()
 {
     background->Draw();
-    for(int i = 0; i < objects.size(); i++)
+    for(unsigned int i = 0; i < objects.size(); i++)
         objects[i]->Draw();
     anima.UpAndDown();
     player->Draw();

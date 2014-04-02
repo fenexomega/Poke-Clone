@@ -19,14 +19,14 @@ private:
 	Uint32 color;
 	bool visible;
 	SDL_Surface * sprite;
-	unsigned char collisionmask;
+	 char collisionmask;
 	int xVel;
 	int yVel;
     Uint32 colorkey;
 public:
 	GObject(int x, int y, int w, int h,bool visible);
-	GObject(int x, int y, int w, int h,bool visible,unsigned char collisionmask);
-	GObject(int x, int y, int w, int h,bool visible,unsigned char r,unsigned char g,unsigned char b);
+	GObject(int x, int y, int w, int h,bool visible, char collisionmask);
+	GObject(int x, int y, int w, int h,bool visible, char r, char g, char b);
 	virtual ~GObject();
     virtual void Draw() = 0;
 
@@ -76,7 +76,7 @@ public:
 		return color;
 	}
 
-	void setColor(unsigned char r,unsigned char g,unsigned char b) {
+	void setColor( char r, char g, char b) {
 		this->color = SDL_MapRGB(screen->format,r,g,b);
 	}
 
@@ -96,11 +96,11 @@ public:
 		this->rect = rect;
 	}
 
-	unsigned char getCollisionmask() const {
+	 char getCollisionmask() const {
 		return collisionmask;
 	}
 
-	void setCollisionmask(unsigned char collisionmask) {
+	void setCollisionmask( char collisionmask) {
 		this->collisionmask = collisionmask;
 	}
 

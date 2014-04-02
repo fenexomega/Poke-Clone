@@ -16,9 +16,6 @@ const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
 extern float deltaTime;
 
-string frasePlaca = "Bem-vindo a lugarnenhum!";
-string fraseMercado = "Mercado daora. O slogan do mercadoainda nao foi    implementado!";
-
 DialogueTest::DialogueTest()
 {
 
@@ -32,67 +29,29 @@ DialogueTest::DialogueTest()
     isMoving = false;
     background = new GETileMap(-GE_GLOBAL_TILESIZE*2,-GE_GLOBAL_TILESIZE*4,GE_GLOBAL_TILE_MAP_FILE,GE_GLOBAL_WORLD_TILEMAP_NAME,0);
     player = new Player(background->getX(),background->getY());
-    objects.push_back(new GameObject(12,7,0,1,frasePlaca) );
-    objects.push_back(new GameObject(18,15,0,1,fraseMercado) );
+    objects = GEParser::ReadObjectData(GE_GLOBAL_MAP_JSON_FILE);
+    debug = false;
 }
 
 
 void DialogueTest::gameUpdate(long currentTime)
 {
-    int m = gameInput::Update();
-    if(m != 0 && !isMoving && !word->isActive())
-    {
-        k = m;
-        if(background->isMovable(m,player->X,player->Y))
-        {
-            i = 0;
-            isMoving = true;
-            switch(m)
-            {
-            case PLAYER_GO_UP:
-                ymov = STEP_DIST; break;
-            case PLAYER_GO_DOWN:
-                ymov = -STEP_DIST; break;
-            case PLAYER_GO_RIGHT:
-                xmov = -STEP_DIST; break;
-            case PLAYER_GO_LEFT:
-                xmov = STEP_DIST; break;
-            }
-        }
-    }
+    if(GEInput::isKeyDown(GEInput::F6))
+        debug = !debug;
+    
+    //Check player input for moving the background
+    UpdatePlayerInputForMoving();
 
+        
     //Checar se o jogador quer falar com algum objeto
-    if(!isMoving)
-    {
-        if(GEInput::isKeyDown(GEInput::z) || GEInput::isKeyDown(GEInput::x))
-        {
-            if(word->isActive())
-                word->Continue();
-            else
-            {
-                if(GEInput::isKeyDown(GEInput::z))
-                {
-                    for (int var = 0; var < objects.size(); ++var)
-                    {
-                        if(player->inFrontOf(objects[var]))
-                        {
-                            if(objects[var]->isTalkable())
-                            {
-                                word->Begin(objects[var]->getPhrase());
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
+    SeeIfUserWannaTalk();
+    
     if((timeAux += deltaTime) > 400 )
     {
         timeAux = 0;
         background->UpdateAnimations();
     }
+    
     if(!isMoving)
     {
         player->Update(k,isMoving);
@@ -118,21 +77,83 @@ void DialogueTest::gameUpdate(long currentTime)
 void DialogueTest::gameDraw()
 {
     background->Draw();
-    for(int i = 0; i < objects.size(); i++)
+    for(unsigned int i = 0; i < objects.size(); ++i)
         objects[i]->Draw();
     word->Draw();
     anima.UpAndDown();
     player->Draw();
+    if(debug)
+        DrawDebugInfo();
 
 }
 
 void DialogueTest::gameDispose()
 {
-    for(int i = 0; i < objects.size();++i)
+    for(unsigned int i = 0; i < objects.size();++i)
         delete objects[i];
     delete player;
     delete word;
     delete background;
+}
+
+void DialogueTest::SeeIfUserWannaTalk()
+{
+    if(!isMoving)
+    {
+        if(GEInput::isKeyDown(GEInput::z) || GEInput::isKeyDown(GEInput::x))
+        {
+            if(word->isActive())
+                word->Continue();
+            else
+            {
+                if(GEInput::isKeyDown(GEInput::z))
+                {
+                    for (unsigned int var = 0; var < objects.size(); ++var)
+                    {
+                        if(player->inFrontOf(objects[var]))
+                        {
+                            if(objects[var]->isTalkable())
+                            {
+                                word->Begin(objects[var]->getPhrase());
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void DialogueTest::UpdatePlayerInputForMoving()
+{
+    int m = gameInput::Update();
+    if(m != 0 && !isMoving && !word->isActive())
+    {
+        k = m;
+        if(background->isMovable(m,player->X,player->Y))
+        {
+            i = 0;
+            isMoving = true;
+            switch(m)
+            {
+            case PLAYER_GO_UP:
+                ymov = STEP_DIST; break;
+            case PLAYER_GO_DOWN:
+                ymov = -STEP_DIST; break;
+            case PLAYER_GO_RIGHT:
+                xmov = -STEP_DIST; break;
+            case PLAYER_GO_LEFT:
+                xmov = STEP_DIST; break;
+            }
+        }
+    }
+}
+void DialogueTest::DrawDebugInfo()
+{
+    GEGraphicsCore::Grid(GEColor::Red(),16 * 4);
+    GE_LOG("DeltaTime = " << deltaTime);
+    //TODO Player info, elements info
 }
 
 DialogueTest::~DialogueTest()

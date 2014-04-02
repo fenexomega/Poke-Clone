@@ -14,7 +14,7 @@
 class Square: public GObject {
 public:
 	Square(int x,int y,int w, int h, bool visible);
-	Square(int x,int y,int w, int h, bool visible, unsigned char r,unsigned char g,unsigned char b);
+	Square(int x,int y,int w, int h, bool visible,  char r, char g, char b);
 	virtual ~Square();
 
 	void Draw()

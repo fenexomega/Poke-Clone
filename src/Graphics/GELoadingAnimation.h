@@ -14,7 +14,7 @@ class GELoadingAnimation {
 private:
 	bool active;
 	std::vector<Square *> squares;
-	int i;
+	 int i;
 	int status;
 public:
 	GELoadingAnimation();

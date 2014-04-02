@@ -20,8 +20,8 @@ private:
 	long currentTime;
 	long oldTime;
     float deltaTime;
-	unsigned long long passedTime;
-	unsigned int passedFrames;
+	 long long passedTime;
+	 int passedFrames;
     vector<float> list;
 public:
 	GETimer();

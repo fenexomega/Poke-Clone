@@ -176,7 +176,7 @@ void Font::WriteString(string s, int x, int y,int maximumWidth)
     int auxX;
     int aux = 0; //GE_GLOBAL_SCREEN_WIDTH/(GE_GLOBAL_TILESIZE/2)
     y *= GE_GLOBAL_TILESIZE/2;
-    for(int i = 0; i < s.size(); ++i)
+    for(unsigned int i = 0; i < s.size(); ++i)
     {
         if(i >= maximumWidth + (maximumWidth * aux) )
         {

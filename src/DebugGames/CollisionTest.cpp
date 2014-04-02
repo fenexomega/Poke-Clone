@@ -6,7 +6,6 @@
  */
 #include "CollisionTest.h"
 #include "../GEPhysics.h"
-#include <random>
 
 CollisionTest::CollisionTest()
 {
@@ -26,7 +25,7 @@ void CollisionTest::gameInit()
 	objects.push_back(new Square(100,400,SQUARE_SIZE,SQUARE_SIZE,true,0,255,0));
 	objects.push_back(new Square(50,350,SQUARE_SIZE,SQUARE_SIZE,true,0,127,0));
 	objects.push_back(new Square(150,150,SQUARE_SIZE,SQUARE_SIZE,true,64,64,0));
-	for(int i = 0; i < objects.size(); i++)
+	for(unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->setVel(i-5,i);
 }
 
@@ -37,8 +36,8 @@ void CollisionTest::gameRun()
 
 void CollisionTest::gameUpdate(long time)
 {
-	int i;
-	int y;
+	 int i;
+	 int y;
 
 	objects[2]->setVisible(!objects[2]->isVisible());
 
@@ -75,7 +74,7 @@ void CollisionTest::gameUpdate(long time)
 
 void CollisionTest::gameDraw()
 {
-	for(int i = 0; i < objects.size(); i++)
+	for(unsigned int i = 0; i < objects.size(); i++)
 			objects[i]->Draw();
 
 	animation.Left2Right();
@@ -83,7 +82,7 @@ void CollisionTest::gameDraw()
 
 void CollisionTest::gameDispose()
 {
-	for(int i = 0; i < objects.size(); i++)
+	for(unsigned int i = 0; i < objects.size(); i++)
 			delete objects[i];
 }
 

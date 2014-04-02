@@ -20,13 +20,13 @@ GObject::GObject(int x, int y, int w, int h,bool visible)
 	this->rect.h = h;
 	this->rect.w = w;
 	this->visible = visible;
-	this->collisionmask = 0b0001;
+	this->collisionmask = 1;
 	this->sprite = NULL;
 	xVel = yVel = 0;
 
 }
 
-GObject::GObject(int x, int y, int w, int h,bool visible,unsigned char collisionmask)
+GObject::GObject(int x, int y, int w, int h,bool visible, char collisionmask)
 {
 	this->color = GEColor::getColor(255,255,255);
 	this->rect.x = x;
@@ -40,7 +40,7 @@ GObject::GObject(int x, int y, int w, int h,bool visible,unsigned char collision
 }
 
 
-GObject::GObject(int x, int y, int w, int h,bool visible,unsigned char r,unsigned char g,unsigned char b)
+GObject::GObject(int x, int y, int w, int h,bool visible, char r, char g, char b)
 {
 	this->color = GEColor::getColor(r,g,b);
 	this->rect.x = x;
@@ -48,7 +48,7 @@ GObject::GObject(int x, int y, int w, int h,bool visible,unsigned char r,unsigne
 	this->rect.h = h;
 	this->rect.w = w;
 	this->visible = visible;
-	this->collisionmask = 0b0001;
+	this->collisionmask = 1;
 	this->sprite = NULL;
 	xVel = yVel = 0;
 }

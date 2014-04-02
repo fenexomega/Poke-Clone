@@ -20,14 +20,14 @@ GELoadingAnimation::~GELoadingAnimation() {
 
 void GELoadingAnimation::Left2Right()
 {
-
+    
 }
 
 void GELoadingAnimation::UpAndDown()
 {
-    int squares_per_width = (GE_GLOBAL_SCREEN_WIDTH/(GE_GLOBAL_TILESIZE));
-    int squares_per_height = GE_GLOBAL_SCREEN_HEIGHT/(GE_GLOBAL_TILESIZE) -1;
-    int maxSquaresInScreen = (GE_GLOBAL_SCREEN_HEIGHT * GE_GLOBAL_SCREEN_WIDTH)/((GE_GLOBAL_TILESIZE) * (GE_GLOBAL_TILESIZE));
+     int squares_per_width = (GE_GLOBAL_SCREEN_WIDTH/(GE_GLOBAL_TILESIZE));
+     int squares_per_height = GE_GLOBAL_SCREEN_HEIGHT/(GE_GLOBAL_TILESIZE) -1;
+     int maxSquaresInScreen = (GE_GLOBAL_SCREEN_HEIGHT * GE_GLOBAL_SCREEN_WIDTH)/((GE_GLOBAL_TILESIZE) * (GE_GLOBAL_TILESIZE));
     if(active == true)
     {
         squares.push_back(new Square( (squares.size() % squares_per_width )* (GE_GLOBAL_TILESIZE),(squares.size()/(squares_per_width))*(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),true));

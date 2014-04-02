@@ -152,7 +152,7 @@ public:
     static const short int x			= 120;
     static const short int y			= 121;
     static const short int z			= 122;
-    static const short int DELETE		= 127;
+    static const short int Delete		= 127;
     /* End of ASCII mapped keysyms */
         /*@}*/
 

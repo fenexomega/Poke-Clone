@@ -16,10 +16,10 @@ private:
     string s;
     int x;
     int y;
-    int limit;
+      int limit;
     bool animated;
     bool active;
-    int i;
+     int i;
     float timeAux;
     GEBackground *background;
 public:

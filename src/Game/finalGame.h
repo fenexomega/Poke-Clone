@@ -1,7 +1,6 @@
 #ifndef FINALGAME_H
 #define FINALGAME_H
 
-#include "SDL.h"
 #include "../GEGame.h"
 #include <vector>
 #include "../Graphics/GObject.h"

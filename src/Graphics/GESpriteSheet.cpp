@@ -7,7 +7,7 @@
 
 #include "GESpriteSheet.h"
 
-GESpriteSheet::GESpriteSheet(string image, unsigned char tileSize,int type) : GObject(0,0,0,0,true)
+GESpriteSheet::GESpriteSheet(string image,  char tileSize,int type) : GObject(0,0,0,0,true)
 {
 	SDL_Rect *auxRect;
     this->setSprite(image);

@@ -25,12 +25,16 @@ private:
     float timeAux;
     float movingTimeAcc;
     float stepTimeAux;
+    bool debug;
 public:
     DialogueTest();
     ~DialogueTest();
     void gameUpdate(long currentTime);
     void gameDraw();
     void gameDispose();
+    void SeeIfUserWannaTalk();
+    void DrawDebugInfo();
+    void UpdatePlayerInputForMoving();
 };
 
 #endif // DIALOGUETEST_H

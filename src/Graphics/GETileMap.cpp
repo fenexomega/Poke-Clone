@@ -15,7 +15,7 @@ GETileMap::GETileMap(int x,int y,string filename,string tileimage,int type)
     X = x/GE_GLOBAL_TILESIZE;
     Y = y/GE_GLOBAL_TILESIZE;
     animatedAux = 0;
-    int pos;
+     int pos;
     string line,word;
     // Colocar imagem de spritesheet na surface
     spritesheet = new GESpriteSheet(tileimage,GE_GLOBAL_TILESIZE,type);
@@ -35,7 +35,7 @@ GETileMap::GETileMap(int x,int y,string filename,string tileimage,int type)
     while((pos = line.find(',')) != std::string::npos)
     {
         word = line.substr(0, pos);
-        unmovableTiles.push_back(std::stoi(word));
+        unmovableTiles.push_back(atoi(word.c_str()));
         line.erase(0, pos + 1);
     }
     file.close();
@@ -100,7 +100,7 @@ void GETileMap::Draw()
 
 bool GETileMap::isMovable(int direction,int tileX,int tileY)
 {
-    int aux[2];
+    int aux[2] = {0,0};
     switch(direction)
     {
     case PLAYER_GO_RIGHT:
@@ -117,7 +117,7 @@ bool GETileMap::isMovable(int direction,int tileX,int tileY)
         aux[1] = tileY - 1; break;
     }
 
-    for(int i = 0; i < unmovableTiles.size() ; ++i)
+    for(unsigned int i = 0; i < unmovableTiles.size() ; ++i)
     {
         if(animatedTiles[aux[0]][aux[1]] != 0 && animatedTiles[aux[0]][aux[1]] == unmovableTiles[i])
         {

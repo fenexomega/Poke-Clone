@@ -14,7 +14,7 @@ class GEColor {
 public:
 	GEColor();
 	virtual ~GEColor();
-	static Uint32 getColor(unsigned char r,unsigned char g,unsigned char b)
+	static Uint32 getColor( char r, char g, char b)
 	{
 		return SDL_MapRGB(screen->format,r,g,b);
 	}

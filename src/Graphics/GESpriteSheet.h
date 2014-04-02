@@ -15,7 +15,7 @@ class GESpriteSheet: public GObject {
 private:
 	std::vector<SDL_Rect*> tiles;
 public:
-    GESpriteSheet(string image,unsigned char tileSize, int type);
+    GESpriteSheet(string image, char tileSize, int type);
 	virtual ~GESpriteSheet();
     SDL_Rect *getRect(int n);
 	void Draw();

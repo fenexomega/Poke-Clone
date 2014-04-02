@@ -12,7 +12,7 @@ Square::Square(int x,int y,int w, int h, bool visible) : GObject(x,y,w,h,visible
 
 }
 
-Square::Square(int x,int y,int w, int h, bool visible, unsigned char r,unsigned char g,unsigned char b) : GObject(x,y,w,h,visible,r,g,b) {
+Square::Square(int x,int y,int w, int h, bool visible,  char r, char g, char b) : GObject(x,y,w,h,visible,r,g,b) {
 	// TODO Auto-generated constructor stub
 
 }
