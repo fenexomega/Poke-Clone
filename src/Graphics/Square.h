@@ -13,17 +13,11 @@
 
 class Square: public GObject {
 public:
-	Square(int x,int y,int w, int h, bool visible);
-	Square(int x,int y,int w, int h, bool visible,  char r, char g, char b);
+	Square(int x,int y,int w, int h);
+	Square(int x,int y,int w, int h,char r, char g, char b);
 	virtual ~Square();
 
-	void Draw()
-	{
-		if(isVisible())
-			if( (getX() + getW() >= 0) && (getY() + getH() >= 0) )
-				if( (getX() <= GE_GLOBAL_SCREEN_WIDTH) && (getY() <= GE_GLOBAL_SCREEN_HEIGHT))
-					SDL_FillRect(screen,getRect(),getColor());
-	}
+	void Draw();
 
 };
 

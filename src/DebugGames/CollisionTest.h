@@ -29,8 +29,6 @@ private:
 public:
 	CollisionTest();
 	virtual ~CollisionTest();
-	void gameInit();
-	void gameRun();
 	void gameUpdate(long time);
 	void gameDraw();
 	void gameDispose();

@@ -5,9 +5,9 @@
 #include "../Graphics/GETileMap.h"
 #include "../Graphics/GELoadingAnimation.h"
 #include <vector>
-#include "Player.h"
-#include "Word.h"
-#include "GameObject.h"
+#include "../Game/Game_Classes/Player.h"
+#include "../Game/Game_Classes/Word.h"
+#include "../Game/Game_Classes/GameObject.h"
 using namespace std;
 
 class DialogueTest: public GEGame {
@@ -26,6 +26,7 @@ private:
     float movingTimeAcc;
     float stepTimeAux;
     bool debug;
+    vector<GameObject *>* viewbleObjects;
 public:
     DialogueTest();
     ~DialogueTest();

@@ -7,7 +7,7 @@
 
 #include "GETileMap.h"
 #include <string>
-#include "../DebugGames/GlobalSettings.h"
+#include "../Game/Game_Classes/GlobalSettings.h"
 
 
 GETileMap::GETileMap(int x,int y,string filename,string tileimage,int type)

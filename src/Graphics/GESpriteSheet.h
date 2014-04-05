@@ -9,9 +9,10 @@
 #define GESPRITESHEET_H_
 
 #include "GObject.h"
-#include <vector>
 
-class GESpriteSheet: public GObject {
+
+class GESpriteSheet: public GObject
+{
 private:
 	std::vector<SDL_Rect*> tiles;
 public:

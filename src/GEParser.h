@@ -5,7 +5,7 @@
 #include <fstream>
 #include <vector>
 #include "jsoncpp/json/json.h"
-#include "DebugGames/GameObject.h"
+#include "Game/Game_Classes/GameObject.h"
 
 //TODO Everything
 

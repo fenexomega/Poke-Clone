@@ -1,8 +1,8 @@
 #ifndef FONT_H
 #define FONT_H
 
-#include "../Graphics/GObject.h"
-#include "../Graphics/GESpriteSheet.h"
+#include "../../Graphics/GObject.h"
+#include "../../Graphics/GESpriteSheet.h"
 #include <vector>
 
 using namespace std;

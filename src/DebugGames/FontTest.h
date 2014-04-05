@@ -1,8 +1,8 @@
 #ifndef FONTTEST_H
 #define FONTTEST_H
 #include "../GEGame.h"
-#include "font.h"
-#include "Word.h"
+#include "../Game/Game_Classes/font.h"
+#include "../Game/Game_Classes/Word.h"
 #include "../Graphics/GEBackground.h"
 
 class FontTest : public GEGame

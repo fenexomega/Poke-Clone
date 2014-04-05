@@ -30,8 +30,8 @@ void GELoadingAnimation::UpAndDown()
      int maxSquaresInScreen = (GE_GLOBAL_SCREEN_HEIGHT * GE_GLOBAL_SCREEN_WIDTH)/((GE_GLOBAL_TILESIZE) * (GE_GLOBAL_TILESIZE));
     if(active == true)
     {
-        squares.push_back(new Square( (squares.size() % squares_per_width )* (GE_GLOBAL_TILESIZE),(squares.size()/(squares_per_width))*(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),true));
-        squares.push_back(new Square((squares_per_width - squares.size()%squares_per_width)* (GE_GLOBAL_TILESIZE),( squares_per_height - squares.size()/squares_per_width)*(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),true));
+        squares.push_back(new Square( (squares.size() % squares_per_width )* (GE_GLOBAL_TILESIZE),(squares.size()/(squares_per_width))*(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE)));
+        squares.push_back(new Square((squares_per_width - squares.size()%squares_per_width)* (GE_GLOBAL_TILESIZE),( squares_per_height - squares.size()/squares_per_width)*(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE)));
         for(i = 0; i < squares.size(); i++)
             squares[i]->Draw();
         if(squares.size() == maxSquaresInScreen)
@@ -43,7 +43,7 @@ void GELoadingAnimation::Spiral()
 {
     if(active == true)
     {
-        squares.push_back(new Square((squares.size() % 20)* (GE_GLOBAL_TILESIZE),(squares.size()/20)*(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),true));
+        squares.push_back(new Square((squares.size() % 20)* (GE_GLOBAL_TILESIZE),(squares.size()/20)*(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE),(GE_GLOBAL_TILESIZE)));
         for(i = 0; i < squares.size(); i++)
             squares[i]->Draw();
         if(squares.size() == ((GE_GLOBAL_SCREEN_HEIGHT/(GE_GLOBAL_TILESIZE)) * (GE_GLOBAL_SCREEN_WIDTH/(GE_GLOBAL_TILESIZE))))

@@ -8,9 +8,9 @@
 #include "DialogueTest.h"
 #include "../GEInput.h"
 #include "../GETimer.h"
-#include "gameInput.h"
-#include "GlobalSettings.h"
-#include "../GEParser.h"
+#include "../Game/Game_Classes/gameInput.h"
+#include "../Game/Game_Classes/GlobalSettings.h"
+#include "../GEParser.h"/
 
 const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
@@ -18,7 +18,6 @@ extern float deltaTime;
 
 DialogueTest::DialogueTest()
 {
-
     word = new Word(TEXT_POSITION_X,TEXT_POSITION_Y,TEXT_LIMIT);
     movingTimeAcc = 1000;
     timeAux = 0;
@@ -41,8 +40,8 @@ void DialogueTest::gameUpdate(long currentTime)
     
     //Check player input for moving the background
     UpdatePlayerInputForMoving();
-
-        
+    
+    
     //Checar se o jogador quer falar com algum objeto
     SeeIfUserWannaTalk();
     
@@ -58,7 +57,7 @@ void DialogueTest::gameUpdate(long currentTime)
     }
     else
     {
-        if((movingTimeAcc += deltaTime) > 200)
+        if(i == 0)
         {
             player->Update(k,isMoving);
             movingTimeAcc = 0;
@@ -69,7 +68,12 @@ void DialogueTest::gameUpdate(long currentTime)
             player->UpdatePos(background->getX(),background->getY());
             ymov = xmov = 0;
             isMoving = false;
-            movingTimeAcc = 200;
+            
+            //Limpar os objetos visiveis e atualizar a lista.
+            viewbleObjects = new vector<GameObject *>;
+            for(int z = 0; z < objects.size(); ++z)
+                if(objects[z]->isViewable(background->getX(),background->getY()))
+                    viewbleObjects->push_back(objects[z]);
         }
     }
 }
@@ -84,7 +88,7 @@ void DialogueTest::gameDraw()
     player->Draw();
     if(debug)
         DrawDebugInfo();
-
+    
 }
 
 void DialogueTest::gameDispose()
@@ -108,16 +112,17 @@ void DialogueTest::SeeIfUserWannaTalk()
             {
                 if(GEInput::isKeyDown(GEInput::z))
                 {
-                    for (unsigned int var = 0; var < objects.size(); ++var)
-                    {
-                        if(player->inFrontOf(objects[var]))
+                    for (unsigned int var = 0; var < viewbleObjects->size(); ++var)
+                    {       
+                        if(player->inFrontOf((*viewbleObjects)[var]))
                         {
-                            if(objects[var]->isTalkable())
+                            if((*viewbleObjects)[var]->isTalkable())
                             {
-                                word->Begin(objects[var]->getPhrase());
+                                word->Begin((*viewbleObjects)[var]->getPhrase());
                                 break;
                             }
                         }
+                        
                     }
                 }
             }
@@ -158,6 +163,6 @@ void DialogueTest::DrawDebugInfo()
 
 DialogueTest::~DialogueTest()
 {
-
+    
 }
 

@@ -12,42 +12,39 @@ GObject::~GObject() {
 	SDL_FreeSurface(sprite);
 }
 
-GObject::GObject(int x, int y, int w, int h,bool visible)
+GObject::GObject(int x, int y, int w, int h)
 {
 	this->color = GEColor::getColor(255,255,255);
 	this->rect.x = x;
 	this->rect.y = y;
 	this->rect.h = h;
 	this->rect.w = w;
-	this->visible = visible;
 	this->collisionmask = 1;
 	this->sprite = NULL;
 	xVel = yVel = 0;
 
 }
 
-GObject::GObject(int x, int y, int w, int h,bool visible, char collisionmask)
+GObject::GObject(int x, int y, int w, int h, char collisionmask)
 {
 	this->color = GEColor::getColor(255,255,255);
 	this->rect.x = x;
 	this->rect.y = y;
 	this->rect.h = h;
 	this->rect.w = w;
-	this->visible = visible;
 	this->collisionmask = collisionmask;
 	this->sprite = NULL;
 	xVel = yVel = 0;
 }
 
 
-GObject::GObject(int x, int y, int w, int h,bool visible, char r, char g, char b)
+GObject::GObject(int x, int y, int w, int h, char r, char g, char b)
 {
 	this->color = GEColor::getColor(r,g,b);
 	this->rect.x = x;
 	this->rect.y = y;
 	this->rect.h = h;
 	this->rect.w = w;
-	this->visible = visible;
 	this->collisionmask = 1;
 	this->sprite = NULL;
 	xVel = yVel = 0;

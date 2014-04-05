@@ -1,8 +1,6 @@
 #ifndef GEPLAYER_H
 #define GEPLAYER_H
 
-#include "../Graphics/GObject.h"
-#include "../Graphics/GESpriteSheet.h"
 #include "GameObject.h"
 #include "GlobalSettings.h"
 #include "Pokemon.h"

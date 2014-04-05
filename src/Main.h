@@ -8,11 +8,11 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 #include "GETimer.h"
-#include "GEGraphicsCore.h"
 #include "GEGame.h"
-#include <vector>
 #include "Graphics/Square.h"
 #include "SDL/SDL_opengl.h"
+#include <stdlib.h>
+#include <time.h>
 
 #include "GEInput.h"
 
@@ -25,6 +25,8 @@ SDL_Surface * screen;
 SDL_Event event;
 
 float deltaTime;
-float deltaMedia;
+float totalTime;
+
+
 
 #endif /* MAIN_H_ */

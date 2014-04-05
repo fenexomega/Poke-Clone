@@ -8,7 +8,6 @@
 #ifndef GETILEMAP_H_
 #define GETILEMAP_H_
 
-#include "GESpriteSheet.h"
 #include <fstream>
 #include "../GEParser.h"
 
@@ -21,9 +20,9 @@ private:
     int layer2[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
     int animatedTiles[GE_GLOBAL_MAP_HEIGHT_IN_TILES][GE_GLOBAL_MAP_WIDTH_IN_TILES];
     vector<int> unmovableTiles;
-    int matrixX,matrixY;
     int animatedAux;
 public:
+    int matrixX,matrixY;
     int X;
     int Y;
     GETileMap(int x,int y,string filename,string tileimage,int type);

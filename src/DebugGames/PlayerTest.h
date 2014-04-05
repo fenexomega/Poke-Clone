@@ -11,7 +11,7 @@
 #include "../Graphics/GETileMap.h"
 #include "../Graphics/GELoadingAnimation.h"
 #include <vector>
-#include "Player.h"
+#include "../Game/Game_Classes/Player.h"
 using namespace std;
 
 class PlayerTest: public GEGame {

@@ -2,9 +2,9 @@
 #define WORD_H
 
 #include <iostream>
-#include "../GEGlobal.h"
+#include "../../GEGlobal.h"
 #include "font.h"
-#include "../Graphics/GEBackground.h"
+#include "../../Graphics/GEBackground.h"
 
 using namespace std;
 

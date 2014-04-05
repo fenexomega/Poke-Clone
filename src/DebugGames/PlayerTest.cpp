@@ -8,8 +8,8 @@
 #include "PlayerTest.h"
 #include "../GEInput.h"
 #include "../GETimer.h"
-#include "gameInput.h"
-#include "GlobalSettings.h"
+#include "../Game/Game_Classes/gameInput.h"
+#include "../Game/Game_Classes/GlobalSettings.h"
 const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
 extern float deltaTime;

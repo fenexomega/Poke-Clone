@@ -3,8 +3,7 @@
 
 GEParser::GEParser(string filename)
 {
-    //TODO Criar uma nova classe (GEFile?) que contenha métodos abstratos de abrir,
-    //pegar todo o conteúdo do arquivo, por tudo numa string, fechar o arquivo, e voltar essa string.
+    
     
     
 }
@@ -21,9 +20,6 @@ void GEParser::ReadMapData(string filename1,string objectName,string index,int m
     
     file.open(filename1.c_str());
     //Pegue todo o conteúdo do arquivo
-    
-    
-    
     
     
     if(reader.parse(file,root,false) == false)
@@ -58,11 +54,6 @@ vector<GameObject *> GEParser::ReadObjectData(string filename1)
     int z;
     
     file.open(filename1.c_str());
-    //Pegue todo o conteúdo do arquivo
-    
-    
-   
-    
     
     if(reader.parse(file,root,false) == false)
         GE_LOG(reader.getFormatedErrorMessages());

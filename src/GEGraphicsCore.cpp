@@ -74,8 +74,10 @@ bool GEGraphicsCore::initGraphics() {
 
     if (screen == NULL)
         return false;
-
-    SDL_WM_SetCaption(GE_GLOBAL_SCREEN_NAME, NULL);
+    string caption = GE_GLOBAL_SCREEN_NAME;
+    caption.append(GE_GLOBAL_ENGINE_VERSION);
+    
+    SDL_WM_SetCaption(caption.c_str(), NULL);
 
     return true;
 }
