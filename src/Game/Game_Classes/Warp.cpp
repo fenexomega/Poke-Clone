@@ -9,7 +9,7 @@ Warp::Warp(int x, int y, int toX, int toY,int toZ)
 }
 
 
-void Warp::teleport(Player *player)
+void Warp::teleport(Player &player)
 {
     
 }

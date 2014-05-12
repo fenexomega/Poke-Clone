@@ -3,56 +3,16 @@ cmake_minimum_required(VERSION 2.8)
 
 find_package(SDL REQUIRED)
 find_package(SDL_image REQUIRED)
-add_executable( game
+#aux_source_directory(src/ SRC_LIST)
+#aux_source_directory(src/Graphics SRC_GRAPH)
+#aux_source_directory(src/DebugGames SRC_DG)
+#aux_source_directory(src/jsoncpp SRC_JSON)
+#aux_source_directory(src/GameFiles SRC_GF)
+#aux_source_directory(src/Game SRC_GAME)
 
-        src/Main.cpp
-        src/GEPhysics.cpp
-        src/GETimer.cpp
-        src/GEGraphicsCore.cpp
-        src/GEGlobal.h
-        src/GEInput.h
-        src/GEGame.h
-        src/GEParser.cpp
-        src/GEFile.cpp
-        src/GERandom.cpp
+file(GLOB_RECURSE variable src/*.cpp src/*.h)
 
-        src/Graphics/GELoadingAnimation.cpp
-        src/Graphics/GEBackground.cpp
-        src/Graphics/GEColor.cpp
-        src/Graphics/GESpriteSheet.cpp
-        src/Graphics/GObject.cpp
-        src/Graphics/Square.cpp
-        src/Graphics/GESpriteSheet.cpp
-        src/Graphics/GETileMap.cpp
-        src/Graphics/GESpriteAnimation.cpp
-
-        src/DebugGames/CollisionTest.cpp
-        src/DebugGames/ScrollingTest.cpp
-        src/DebugGames/PlayerTest.cpp
-        src/DebugGames/BattleTest.cpp
-        src/DebugGames/FontTest.cpp
-        src/DebugGames/DialogueTest.cpp
-        src/DebugGames/RandTest.cpp
-
-        src/Game/finalGame.cpp
-
-        src/GameFiles/tilemap.map
-        src/GameFiles/pokemon.json
-        src/GameFiles/pokemonList.json        
-
-        src/Game/Game_Classes/Pokemon.cpp
-        src/Game/Game_Classes/font.cpp
-        src/Game/Game_Classes/Word.cpp
-        src/Game/Game_Classes/Player.cpp
-        src/Game/Game_Classes/gameInput.cpp
-        src/Game/Game_Classes/GlobalSettings.h
-        src/Game/Game_Classes/GameObject.cpp
-        src/Game/Game_Classes/Move.cpp
-
-#JSONCPP
-        src/jsoncpp/json_reader.cpp
-        src/jsoncpp/json_value.cpp
-        src/jsoncpp/json_writer.cpp
+add_executable( game ${variable}
 )
 set(FILEPATH src/GameFiles/)
 
@@ -67,7 +27,7 @@ file(COPY
 DESTINATION ${CMAKE_BINARY_DIR}/Content )
 
 
-set(CMAKE_CXX_FLAGS "-Wall -g")
+set(CMAKE_CXX_FLAGS "-Wall")
 
 if(UNIX)
     message("Unix Detected, using shared libraries for Linux")

@@ -1,12 +1,6 @@
 #include "GEParser.h"
 
 
-GEParser::GEParser(string filename)
-{
-    
-    
-    
-}
 
 void GEParser::ReadMapData(string filename1,string objectName,string index,int matrix[][GE_GLOBAL_MAP_WIDTH_IN_TILES])
 {
