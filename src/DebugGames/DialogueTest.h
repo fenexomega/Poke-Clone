@@ -26,7 +26,7 @@ private:
     float movingTimeAcc;
     float stepTimeAux;
     bool debug;
-    vector<GameObject *>* viewbleObjects;
+	vector<GameObject *> viewbleObjects;
 public:
     DialogueTest();
     ~DialogueTest();

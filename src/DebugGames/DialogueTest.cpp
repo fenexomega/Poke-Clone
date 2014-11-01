@@ -10,7 +10,7 @@
 #include "../GETimer.h"
 #include "../Game/Game_Classes/gameInput.h"
 #include "../Game/Game_Classes/GlobalSettings.h"
-#include "../GEParser.h"/
+#include "../GEParser.h"
 
 const int PLAYER_SIZE = GE_GLOBAL_TILESIZE;
 const int STEP_DIST = GE_GLOBAL_TILESIZE /4;
@@ -70,10 +70,10 @@ void DialogueTest::gameUpdate(long currentTime)
             isMoving = false;
             
             //Limpar os objetos visiveis e atualizar a lista.
-            viewbleObjects = new vector<GameObject *>;
+            viewbleObjects.clear();
             for(int z = 0; z < objects.size(); ++z)
                 if(objects[z]->isViewable(background->getX(),background->getY()))
-                    viewbleObjects->push_back(objects[z]);
+                    viewbleObjects.push_back(objects[z]);
         }
     }
 }
@@ -112,13 +112,13 @@ void DialogueTest::SeeIfUserWannaTalk()
             {
                 if(GEInput::isKeyDown(GEInput::z))
                 {
-                    for (unsigned int var = 0; var < viewbleObjects->size(); ++var)
+                    for (unsigned int var = 0; var < viewbleObjects.size(); ++var)
                     {       
-                        if(player->inFrontOf((*viewbleObjects)[var]))
+                        if(player->inFrontOf(viewbleObjects[var]))
                         {
-                            if((*viewbleObjects)[var]->isTalkable())
+                            if(viewbleObjects[var]->isTalkable())
                             {
-                                word->Begin((*viewbleObjects)[var]->getPhrase());
+                                word->Begin(viewbleObjects[var]->getPhrase());
                                 break;
                             }
                         }
@@ -163,6 +163,7 @@ void DialogueTest::DrawDebugInfo()
 
 DialogueTest::~DialogueTest()
 {
-    
+
+	//	delete viewbleObjects;
 }
 

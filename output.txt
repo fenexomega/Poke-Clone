@@ -1,0 +1,166 @@
+==22739== Memcheck, a memory error detector
+==22739== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==22739== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info
+==22739== Command: ./game
+==22739== 
+--22739-- Valgrind options:
+--22739--    -v
+--22739-- Contents of /proc/version:
+--22739--   Linux version 3.17.1-1-ARCH (nobody@var-lib-archbuild-testing-x86_64-tobias) (gcc version 4.9.1 20140903 (prerelease) (GCC) ) #1 SMP PREEMPT Wed Oct 15 15:04:35 CEST 2014
+--22739-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-bmi
+--22739-- Page sizes: currently 4096, max supported 4096
+--22739-- Valgrind library directory: /usr/lib/valgrind
+--22739-- Reading syms from /home/jordy/Projetos/Poke-Clone/game
+--22739-- Reading syms from /usr/lib/ld-2.20.so
+--22739-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--22739--    object doesn't have a symbol table
+--22739--    object doesn't have a dynamic symbol table
+--22739-- Scheduler: using generic scheduler lock implementation.
+--22739-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==22739== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-22739-by-jordy-on-???
+==22739== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-22739-by-jordy-on-???
+==22739== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-22739-by-jordy-on-???
+==22739== 
+==22739== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==22739== don't want to do, unless you know exactly what you're doing,
+==22739== or are doing some strange experiment):
+==22739==   /usr/lib/valgrind/../../bin/vgdb --pid=22739 ...command...
+==22739== 
+==22739== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==22739==   /path/to/gdb ./game
+==22739== and then give GDB the following command
+==22739==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=22739
+==22739== --pid is optional if only one valgrind process is running
+==22739== 
+--22739-- REDIR: 0x4018aa0 (ld-linux-x86-64.so.2:strlen) redirected to 0x380bd6d1 (???)
+--22739-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--22739--    object doesn't have a symbol table
+==22739== WARNING: new redirection conflicts with existing -- ignoring it
+--22739--     old: 0x04018aa0 (strlen              ) R-> (0000.0) 0x380bd6d1 ???
+--22739--     new: 0x04018aa0 (strlen              ) R-> (2007.0) 0x04c2d5d0 strlen
+--22739-- REDIR: 0x4018850 (ld-linux-x86-64.so.2:index) redirected to 0x4c2d180 (index)
+--22739-- REDIR: 0x4018a70 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2e680 (strcmp)
+--22739-- REDIR: 0x4019790 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c311d0 (mempcpy)
+--22739-- Reading syms from /usr/lib/libSDL-1.2.so.0.11.4
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libpthread-2.20.so
+--22739-- Reading syms from /usr/lib/libSDL_image-1.2.so.0.8.4
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libstdc++.so.6.0.20
+--22739-- Reading syms from /usr/lib/libm-2.20.so
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libgcc_s.so.1
+--22739-- Reading syms from /usr/lib/libc-2.20.so
+--22739-- Reading syms from /usr/lib/libdl-2.20.so
+--22739--    object doesn't have a symbol table
+--22739-- REDIR: 0x5db7e10 (libc.so.6:strcasecmp) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5dba100 (libc.so.6:strncasecmp) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db7590 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db5970 (libc.so.6:rindex) redirected to 0x4c2ce60 (rindex)
+--22739-- REDIR: 0x5db3c70 (libc.so.6:strlen) redirected to 0x4c2d510 (strlen)
+--22739-- REDIR: 0x5db7010 (libc.so.6:__GI_memcmp) redirected to 0x4c30010 (__GI_memcmp)
+--22739-- REDIR: 0x5db2210 (libc.so.6:strcmp) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5e59aa0 (libc.so.6:__strcmp_ssse3) redirected to 0x4c2e540 (strcmp)
+--22739-- REDIR: 0x5567690 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4c2a480 (operator new(unsigned long))
+--22739-- REDIR: 0x5dbc7e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5e59370 (libc.so.6:__memcpy_avx_unaligned) redirected to 0x4c2ea60 (memcpy@@GLIBC_2.14)
+--22739-- REDIR: 0x5daec40 (libc.so.6:calloc) redirected to 0x4c2c000 (calloc)
+--22739-- REDIR: 0x5db6fd0 (libc.so.6:bcmp) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5e79900 (libc.so.6:__memcmp_sse4_1) redirected to 0x4c30090 (__memcmp_sse4_1)
+--22739-- REDIR: 0xffffffffff600000 (???:???) redirected to 0x380bd6b3 (???)
+--22739-- REDIR: 0x5dae200 (libc.so.6:malloc) redirected to 0x4c29f20 (malloc)
+--22739-- Reading syms from /usr/lib/libX11.so.6.3.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libxcb.so.1.1.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libXau.so.6.0.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libXdmcp.so.6.0.0
+--22739--    object doesn't have a symbol table
+--22739-- REDIR: 0x5db4090 (libc.so.6:strncmp) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db75f0 (libc.so.6:memset) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db5930 (libc.so.6:strncpy) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db36a0 (libc.so.6:strcpy) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db7c60 (libc.so.6:stpcpy) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db1fc0 (libc.so.6:index) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5e27b00 (libc.so.6:__memcpy_chk) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- REDIR: 0x5db6a40 (libc.so.6:strstr) redirected to 0x4a24740 (_vgnU_ifunc_wrapper)
+--22739-- Reading syms from /usr/lib/libXext.so.6.4.0
+--22739--    object doesn't have a symbol table
+--22739-- REDIR: 0x40198e0 (ld-linux-x86-64.so.2:stpcpy) redirected to 0x4c30560 (stpcpy)
+--22739-- REDIR: 0x5dae8d0 (libc.so.6:free) redirected to 0x4c2b190 (free)
+--22739-- REDIR: 0x5dbc850 (libc.so.6:__GI_memcpy) redirected to 0x4c2f080 (__GI_memcpy)
+--22739-- REDIR: 0x5db40e0 (libc.so.6:__GI_strncmp) redirected to 0x4c2dcc0 (__GI_strncmp)
+--22739-- REDIR: 0x5db7ca0 (libc.so.6:__GI_stpcpy) redirected to 0x4c30220 (__GI_stpcpy)
+--22739-- REDIR: 0x5dbe7d0 (libc.so.6:strchrnul) redirected to 0x4c30df0 (strchrnul)
+--22739-- REDIR: 0x5dae970 (libc.so.6:realloc) redirected to 0x4c2c220 (realloc)
+--22739-- REDIR: 0x5e27e20 (libc.so.6:__strcpy_chk) redirected to 0x4c30e60 (__strcpy_chk)
+--22739-- REDIR: 0x5db6590 (libc.so.6:__GI_strstr) redirected to 0x4c31450 (__strstr_sse2)
+--22739-- REDIR: 0x5e5ad00 (libc.so.6:__strncmp_ssse3) redirected to 0x4c2dc50 (strncmp)
+--22739-- REDIR: 0x5db7660 (libc.so.6:__GI_memset) redirected to 0x4c30760 (memset)
+--22739-- REDIR: 0x5e58e80 (libc.so.6:__memmove_avx_unaligned) redirected to 0x4c2e7e0 (memcpy@GLIBC_2.2.5)
+--22739-- REDIR: 0x5dc7a20 (libc.so.6:__strncpy_sse2_unaligned) redirected to 0x4c2db20 (__strncpy_sse2_unaligned)
+--22739-- Discarding syms at 0x704a970-0x705474f in /usr/lib/libXext.so.6.4.0 due to munmap()
+--22739-- Discarding syms at 0x66f6d80-0x677e91c in /usr/lib/libX11.so.6.3.0 due to munmap()
+--22739-- Discarding syms at 0x6a25440-0x6a33c45 in /usr/lib/libxcb.so.1.1.0 due to munmap()
+--22739-- Discarding syms at 0x6e42470-0x6e43dc8 in /usr/lib/libXdmcp.so.6.0.0 due to munmap()
+--22739-- Discarding syms at 0x6c3df20-0x6c3eb9c in /usr/lib/libXau.so.6.0.0 due to munmap()
+--22739-- Reading syms from /usr/lib/libX11.so.6.3.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libxcb.so.1.1.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libXau.so.6.0.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libXdmcp.so.6.0.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libXext.so.6.4.0
+--22739--    object doesn't have a symbol table
+--22739-- REDIR: 0x5dc73f0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c2d5f0 (strcpy)
+--22739-- REDIR: 0x5dcba90 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x4c313c0 (strstr)
+--22739-- REDIR: 0x5db1ff0 (libc.so.6:__GI_strchr) redirected to 0x4c2cfc0 (__GI_strchr)
+--22739-- REDIR: 0x5db6c80 (libc.so.6:memchr) redirected to 0x4c2e720 (memchr)
+--22739-- REDIR: 0x5db2250 (libc.so.6:__GI_strcmp) redirected to 0x4c2e590 (__GI_strcmp)
+--22739-- REDIR: 0x5dc8a00 (libc.so.6:__stpcpy_sse2_unaligned) redirected to 0x4c303c0 (__stpcpy_sse2_unaligned)
+--22739-- Reading syms from /usr/lib/libXcursor.so.1.0.2
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libXrender.so.1.3.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libXfixes.so.3.1.0
+--22739--    object doesn't have a symbol table
+--22739-- REDIR: 0x5565800 (libstdc++.so.6:operator delete(void*)) redirected to 0x4c2b660 (operator delete(void*))
+--22739-- REDIR: 0x5db3e30 (libc.so.6:strnlen) redirected to 0x4c2d490 (strnlen)
+--22739-- REDIR: 0x5dbe5c0 (libc.so.6:rawmemchr) redirected to 0x4c30e20 (rawmemchr)
+--22739-- Reading syms from /usr/lib/libpng16.so.16.13.0
+--22739--    object doesn't have a symbol table
+--22739-- Reading syms from /usr/lib/libz.so.1.2.8
+--22739--    object doesn't have a symbol table
+--22739-- REDIR: 0x5567750 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4c2aba0 (operator new[](unsigned long))
+--22739-- REDIR: 0x5565820 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4c2bbe0 (operator delete[](void*))
+--22739-- memcheck GC: 1000 nodes, 918 survivors ( 91.8%)
+--22739-- memcheck GC: 1414 new table size (stepup)
+libpng warning: iCCP: known incorrect sRGB profile
+--22739-- REDIR: 0xffffffffff600400 (???:???) redirected to 0x380bd6bd (???)
+--22739-- Discarding syms at 0x704a970-0x705474f in /usr/lib/libXext.so.6.4.0 due to munmap()
+==22739== 
+==22739== HEAP SUMMARY:
+==22739==     in use at exit: 611,837 bytes in 1,089 blocks
+==22739==   total heap usage: 31,790 allocs, 30,701 frees, 20,995,730 bytes allocated
+==22739== 
+==22739== Searching for pointers to 1,089 not-freed blocks
+==22739== Checked 562,688 bytes
+==22739== 
+==22739== LEAK SUMMARY:
+==22739==    definitely lost: 4,067 bytes in 487 blocks
+==22739==    indirectly lost: 564,424 bytes in 119 blocks
+==22739==      possibly lost: 0 bytes in 0 blocks
+==22739==    still reachable: 43,346 bytes in 483 blocks
+==22739==         suppressed: 0 bytes in 0 blocks
+==22739== Rerun with --leak-check=full to see details of leaked memory
+==22739== 
+==22739== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 24 from 1)
+--22739-- 
+--22739-- used_suppression:     24 X on SUSE11 writev uninit padding /usr/lib/valgrind/default.supp:397
+==22739== 
+==22739== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 24 from 1)

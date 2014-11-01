@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="TRABALHO SI RPG" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/jordy/Projetos/Poke-Clone" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/jordy/Projetos/Poke-Clone" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="game">
+         <Option output="/home/jordy/Projetos/Poke-Clone/game" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/jordy/Projetos/Poke-Clone" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include/SDL" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 game" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="game/fast">
+         <Option output="/home/jordy/Projetos/Poke-Clone/game" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/jordy/Projetos/Poke-Clone" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include/SDL" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 game/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/jordy/Projetos/Poke-Clone" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/jordy/Projetos/Poke-Clone/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/BattleTest.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/CollisionTest.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/DialogueTest.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/FontTest.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/PlayerTest.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/RandTest.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/ScrollingTest.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Engine.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEFile.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEGraphicsCore.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEParser.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEPhysics.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GERandom.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GESoundCore.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GETimer.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/GameObject.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Move.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Player.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Pokemon.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Warp.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Word.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/font.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/gameInput.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/finalGame.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GEBackground.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GEColor.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GELoadingAnimation.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GESpriteAnimation.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GESpriteSheet.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GETileMap.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GObject.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/Square.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Main.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json_reader.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json_value.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json_writer.cpp">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/BattleTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/CollisionTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/DialogueTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/FontTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/InputTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/PlayerTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/RandTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/DebugGames/ScrollingTest.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Engine.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEFile.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEGame.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEGlobal.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEGraphicsCore.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEInput.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEParser.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GEPhysics.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GERandom.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GESoundCore.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/GETimer.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/GameObject.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/GlobalSettings.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Move.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Player.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Pokemon.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Warp.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/Word.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/font.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/Game_Classes/gameInput.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Game/finalGame.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GEBackground.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GEColor.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GELoadingAnimation.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GESpriteAnimation.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GESpriteSheet.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GETileMap.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/GObject.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Graphics/Square.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/Main.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/autolink.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/config.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/features.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/forwards.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/json.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/reader.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/value.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json/writer.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/src/jsoncpp/json_batchallocator.h">
+      </Unit>
+      <Unit filename="/home/jordy/Projetos/Poke-Clone/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

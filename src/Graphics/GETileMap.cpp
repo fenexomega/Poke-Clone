@@ -143,6 +143,6 @@ bool GETileMap::isMovable(int direction,int tileX,int tileY)
 
 GETileMap::~GETileMap() {
     // TODO Auto-generated destructor stub
-    spritesheet->~GESpriteSheet();
+    delete spritesheet;
 }
 

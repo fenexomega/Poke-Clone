@@ -3,12 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 find_package(SDL REQUIRED)
 find_package(SDL_image REQUIRED)
-#aux_source_directory(src/ SRC_LIST)
-#aux_source_directory(src/Graphics SRC_GRAPH)
-#aux_source_directory(src/DebugGames SRC_DG)
-#aux_source_directory(src/jsoncpp SRC_JSON)
-#aux_source_directory(src/GameFiles SRC_GF)
-#aux_source_directory(src/Game SRC_GAME)
+
 
 file(GLOB_RECURSE variable src/*.cpp src/*.h)
 
@@ -27,7 +22,7 @@ file(COPY
 DESTINATION ${CMAKE_BINARY_DIR}/Content )
 
 
-set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-Wall -g")
 
 if(UNIX)
     message("Unix Detected, using shared libraries for Linux")
