@@ -193,5 +193,5 @@ void Font::WriteString(string s, int x, int y,int maximumWidth)
 
 Font::~Font()
 {
-
+	delete letters;
 }

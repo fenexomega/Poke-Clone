@@ -32,7 +32,9 @@ GESpriteSheet::GESpriteSheet(string image,  char tileSize,int type) : GObject(0,
 
 GESpriteSheet::~GESpriteSheet()
 {
-
+	for(int i = 0; i < tiles.size(); ++i)
+		delete tiles[i];
+	
 }
 
 SDL_Rect * GESpriteSheet::getRect(int n)

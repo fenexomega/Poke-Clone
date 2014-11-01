@@ -11,7 +11,7 @@ Player::Player(int x, int y) : GObject(GE_GLOBAL_TILESIZE *4 ,GE_GLOBAL_TILESIZE
 
 Player::~Player()
 {
-
+	delete spritesheet;
 }
 
 void Player::Update(int i,bool moving)
